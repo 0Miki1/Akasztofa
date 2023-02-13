@@ -10,25 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Akasztofa
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for admin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class admin : Window
     {
-        public MainWindow()
+        private MainWindow mw;
+        public admin(MainWindow mw)
         {
             InitializeComponent();
+            this.mw = mw;
         }
-
-        private void anyad(object sender, RoutedEventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
-            admin a = new admin(this);
-            a.Show();
+            base.OnClosed(e);
+            this.Close();
+            mw.Show();
         }
     }
 }
