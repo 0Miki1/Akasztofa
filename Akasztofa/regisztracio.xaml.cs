@@ -10,32 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Akasztofa
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for regisztracio.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class regisztracio : Window
     {
-        public MainWindow()
+        protected MainWindow mw;
+
+        public regisztracio(MainWindow mw)
         {
             InitializeComponent();
+            this.mw = mw;
         }
 
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            Application.Current.Shutdown();
-        }
-
-        private void regisztracio(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            regisztracio r = new regisztracio(this);
-            r.Show();
+            this.Close();
+            mw.Show();
         }
     }
 }

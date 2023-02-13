@@ -11,7 +11,7 @@
             <StackPanel>
                 <Label Content="Akasztófa" Foreground="White" Height="25" Width="108" FontWeight="Bold" HorizontalContentAlignment="Center"/>
                 <Button Content="Bejelentkezés" Height="17" Width="111" Margin="2,0,2,2.5" FontSize="8" BorderBrush="#FF707070" Background="#FFDDDDDD" />
-                <Button Content="Regisztráció" Height="17" Width="111" FontSize="8" Margin="2,0,2,2.5" />
+                <Button Content="Regisztráció" Height="17" Width="111" FontSize="8" Margin="2,0,2,2.5" Click="regisztracio" />
             </StackPanel>
         </Viewbox>
     </Grid>
