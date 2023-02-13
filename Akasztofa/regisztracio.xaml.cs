@@ -33,5 +33,53 @@ namespace Akasztofa
             this.Close();
             mw.Show();
         }
+
+        private void reg(object sender, RoutedEventArgs e)
+        {
+            if (RegTBFh.Text != string.Empty && RegPbJelsz.Password != string.Empty && RegPbJelszU.Password != string.Empty)
+            {
+                if (RegPbJelsz.Password == RegPbJelszU.Password)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("A jelszavak nem egyeznek!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    RegPbJelsz.Password = string.Empty;
+                    RegPbJelszU.Password = string.Empty;
+                }
+            }
+            else
+            {
+                if (RegTBFh.Text == string.Empty && RegPbJelsz.Password == string.Empty && RegPbJelszU.Password == string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy felhasználó nevet és egy jelszót kétszer!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (RegTBFh.Text == string.Empty && RegPbJelsz.Password != string.Empty && RegPbJelszU.Password != string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy felhasználónevet!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                } else if (RegTBFh.Text != string.Empty && RegPbJelsz.Password == string.Empty && RegPbJelszU.Password == string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy jelszót kétszer!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (RegTBFh.Text != string.Empty && RegPbJelsz.Password == string.Empty && RegPbJelszU.Password != string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy jelszót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (RegTBFh.Text != string.Empty && RegPbJelsz.Password != string.Empty && RegPbJelszU.Password == string.Empty)
+                {
+                    MessageBox.Show("Adja meg a jelszavát mégegyszer!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (RegTBFh.Text == string.Empty && RegPbJelsz.Password != string.Empty && RegPbJelszU.Password == string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy felhasználónevet és a jelszavát mégegyszer!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else if (RegTBFh.Text == string.Empty && RegPbJelsz.Password == string.Empty && RegPbJelszU.Password != string.Empty)
+                {
+                    MessageBox.Show("Adjon meg egy felhasználónevet és egy jelszót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }
