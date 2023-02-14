@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="admin" Height="463.462" Width="757.307" MinHeight="400" MinWidth="650" Background="#FF121212" WindowStartupLocation="CenterScreen">
+        Title="admin" Height="463.462" Width="757.307" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen" Loaded="betoltes">
     <Grid>
         <Viewbox>
             <Grid Height="113" Width="209">
                 <GroupBox Header="Új Adat" Width="98" Foreground="White" FontSize="10" BorderBrush="Lime" Margin="100,0,0,0"/>
-                <Label Content="asd" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top" FontSize="7" Width="75" Height="23" Foreground="White"/>
-                <TextBox HorizontalAlignment="Center" Height="12" Margin="118,54,16,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75" FontSize="7"/>
-                <Button Content="Button" HorizontalAlignment="Center" Margin="118,74,16,0" VerticalAlignment="Top" Width="75" Height="30"/>
-                <ComboBox HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11"/>
-                <ComboBox HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11"/>
-                <ComboBox HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11"/>
-                <Button Content="Button" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" Width="72" Height="30"/>
+                <Label x:Name="la1" Content="" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top" FontSize="4" Width="75" Height="23" Foreground="White"/>
+                <TextBox x:Name="ta1" HorizontalAlignment="Center" Height="12" Margin="118,54,16,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" FontSize="6" TextChanged="pirosRoman"/>
+                <Button Content="Feltöltés" HorizontalAlignment="Center" Margin="118,74,16,0" VerticalAlignment="Top" Width="75" Height="30" Click="feltoltes"/>
+                <ComboBox x:Name="ca1" HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11" FontSize="4" DataContextChanged="fasza" SelectionChanged="faszom"/>
+                <ComboBox x:Name="ct2" HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11" FontSize="4"/>
+                <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11" FontSize="4"/>
+                <Button Content="Törlés" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" Width="72" Height="30" Click="Delete"/>
                 <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="3,0,103,0"/>
             </Grid>
         </Viewbox>
