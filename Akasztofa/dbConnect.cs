@@ -40,5 +40,14 @@ namespace Akasztofa
                 return false;
             }
         }
+
+       public bool FhExists(string ui)
+       {
+            if (Connect())
+            {
+                string query = "SELECT ui FROM felhasznalok WHERE ui LIKE @ui;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+            }
+       }
     }
 }
