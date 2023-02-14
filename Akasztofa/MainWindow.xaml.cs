@@ -24,5 +24,12 @@ namespace Akasztofa
         {
             InitializeComponent();
         }
+
+        private void bejelentkezes(object sender, RoutedEventArgs e)
+        {
+            bejelentkezes b = new bejelentkezes(this);
+            this.Hide();
+            b.Show();
+        }
     }
 }
