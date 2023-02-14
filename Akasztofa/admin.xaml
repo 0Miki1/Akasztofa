@@ -14,8 +14,8 @@
                 <TextBox HorizontalAlignment="Center" Height="12" Margin="118,54,16,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75" FontSize="7"/>
                 <Button Content="Button" HorizontalAlignment="Center" Margin="118,74,16,0" VerticalAlignment="Top" Width="75" Height="30"/>
                 <ComboBox HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11"/>
-                <ComboBox HorizontalAlignment="Center" Margin="19,31,118,0" VerticalAlignment="Top" Width="72" Height="11"/>
-                <ComboBox HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="8"/>
+                <ComboBox HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11"/>
+                <ComboBox HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11"/>
                 <Button Content="Button" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" Width="72" Height="30"/>
                 <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="3,0,103,0"/>
             </Grid>
