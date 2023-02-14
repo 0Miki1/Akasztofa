@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Akasztófa" Height="400" Width="650" MinHeight="400" MinWidth="650" Background="#FF121212" WindowStartupLocation="CenterScreen">
+        Title="Akasztófa" Height="400" Width="650" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen" Foreground="#FF2C2C2C">
     <Grid>
         <Viewbox>
             <StackPanel>
