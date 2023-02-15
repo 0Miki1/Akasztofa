@@ -40,5 +40,23 @@ namespace Akasztofa
                 return false;
             }
         }
+
+        public bool InsertSzo(string szo, int nehezseg)
+        {
+            if (Connect())
+            {
+                string query = "INSERT INTO szavak(szo, nehezseg) VALUES(@szo, @nehezseg)";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@szo", szo);
+                cmd.Parameters.AddWithValue("@nehezseg", nehezseg);
+                cmd.ExecuteNonQuery();
+                Connect_Close();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.IO;
 
 namespace Akasztofa
 {
@@ -119,7 +120,7 @@ namespace Akasztofa
             }
             if (ca1.SelectedItem == "Nehéz")
             {
-                karakterE = 12;
+                karakterE = 13;
                 karakterV = 99;
                 if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
                 {
@@ -137,14 +138,48 @@ namespace Akasztofa
 
         }
 
-        private void opne(object sender, RoutedEventArgs e)
+        private void open(object sender, RoutedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open = "Text"
+            open.Filter = "Text files (*.txt)|*.txt";
+            open.InitialDirectory = "c:\\";
+            open.FilterIndex = 2;
+            open.RestoreDirectory = true;
+
             if (open.ShowDialog() == true)
             {
-                
+                insertSzavak(open.FileName);
+                MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void insertSzavak(string file)
+        {
+            FileStream fs = new FileStream(file, FileMode.Open);
+            StreamReader sr = new StreamReader(fs, Encoding.UTF8);
+            dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+
+            while (!sr.EndOfStream)
+            {
+                string sor = sr.ReadLine();
+                int seged = sor.Length;
+
+                if (seged >= 1 && seged <= 7)
+                {
+                    db.InsertSzo(sor, 1);
+                }
+                else if (seged >= 8 && seged <= 12)
+                {
+                    db.InsertSzo(sor, 2);
+                }
+                else if (seged >= 13 && seged <= 99)
+                {
+                    db.InsertSzo(sor, 3);
+                }
+            }
+
+            sr.Close();
+            fs.Close();
         }
     }
 }
