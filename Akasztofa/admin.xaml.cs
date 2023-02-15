@@ -80,6 +80,11 @@ namespace Akasztofa
                 {
                     MessageBox.Show("Nem választott nehézségi szintet","Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                else
+                {
+                    dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+                    
+                }
             }
             else
             {
