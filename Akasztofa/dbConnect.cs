@@ -47,6 +47,7 @@ namespace Akasztofa
             {
                 string query = "SELECT ui FROM felhasznalok WHERE ui LIKE @ui;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ui", ui);
             }
        }
     }
