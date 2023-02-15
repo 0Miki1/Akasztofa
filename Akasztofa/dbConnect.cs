@@ -64,5 +64,17 @@ namespace Akasztofa
             Connect_Close();
             return false;
         }
+
+        public bool SelectStat(string fid)
+        {
+            if (Connect())
+            {
+                string query = "SELECT konnyuossz,konnyunyert,kozepesossz,kozepesnyert,nehezossz,neheznyert FROM jatekok WHERE fid like @fid";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@fid", fid);
+                cmd.ExecuteReader();
+            }
+            return false;
+        }
     }
 }
