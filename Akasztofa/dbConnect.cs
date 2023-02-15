@@ -48,7 +48,36 @@ namespace Akasztofa
                 string query = "SELECT ui FROM felhasznalok WHERE ui LIKE @ui;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ui", ui);
+                if (cmd.ExecuteScalar() == null)
+                {
+                    Connect_Close();
+                    return true;
+                }
+                else
+                {
+                    Connect_Close();
+                    return false;
+                }
             }
-       }
+            Connect_Close();
+            return false;
+        }
+
+        public bool InsertInto(string nev, string jelszo)
+        {
+            if (Connect())
+            {
+                string query = "Insert Into felhasznalok(ui, pw) Values(@ui, @pw)";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ui", nev);
+                cmd.Parameters.AddWithValue("@pw", jelszo);
+                cmd.ExecuteNonQuery();
+
+                Connect_Close();
+                return true;
+            }
+            return false;
+        }
+        
     }
 }

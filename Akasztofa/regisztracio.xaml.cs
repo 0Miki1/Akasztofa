@@ -40,7 +40,20 @@ namespace Akasztofa
             {
                 if (RegPbJelsz.Password == RegPbJelszU.Password)
                 {
-
+                    dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+                    if (db.FhExists(RegTBFh.Text))
+                    {
+                        db.InsertInto(RegTBFh.Text, Convert.ToString(RegPbJelsz.Password));
+                        MessageBox.Show("Sikeres regisztráció","", MessageBoxButton.OK);
+                        RegTBFh.Text = string.Empty;
+                        RegPbJelsz.Password = string.Empty;
+                        RegPbJelszU.Password = string.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Van már ilyen felh név te fasz", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        RegTBFh.Text = string.Empty;
+                    }
                 }
                 else
                 {
