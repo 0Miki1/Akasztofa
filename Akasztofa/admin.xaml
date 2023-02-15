@@ -17,7 +17,9 @@
                 <ComboBox x:Name="ct2" HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11" FontSize="4"/>
                 <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11" FontSize="4"/>
                 <Button Content="Törlés" HorizontalAlignment="Left" Margin="19,74,0,0" VerticalAlignment="Top" Width="72" Height="30" Click="Delete"/>
-                <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="3,0,103,0"/>
+                <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="3,0,103,0">
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="60,40,-49,0" VerticalAlignment="Top" Width="75" Click="opne"/>
+                </GroupBox>
             </Grid>
         </Viewbox>
     </Grid>

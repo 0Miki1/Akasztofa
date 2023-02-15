@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Akasztofa
 {
@@ -134,6 +135,16 @@ namespace Akasztofa
         private void Delete(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void opne(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open = "Text"
+            if (open.ShowDialog() == true)
+            {
+                
+            }
         }
     }
 }
