@@ -39,7 +39,7 @@ namespace Akasztofa
             if (LogTBF.Text != string.Empty &&LogPBJ.Password != string.Empty)
             {
                 dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                if (db.Login(LogTBF.Text, LogPBJ.Password) == false)
+                if (db.Login(new user(LogTBF.Text, LogPBJ.Password)) == false)
                 {
                     MessageBox.Show("Sikeres bejelentkezés", "", MessageBoxButton.OK);
                     LogTBF.Text = string.Empty;
