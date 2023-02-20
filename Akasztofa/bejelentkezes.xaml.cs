@@ -39,12 +39,29 @@ namespace Akasztofa
             if (LogTBF.Text != string.Empty &&LogPBJ.Password != string.Empty)
             {
                 dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                if (db.Login(new user(LogTBF.Text, LogPBJ.Password)) == false)
+                user login = db.Login(new user(LogTBF.Text, LogPBJ.Password));
+                if (login.Fid != string.Empty && login.Pw != string.Empty)
                 {
-                    MessageBox.Show("Sikeres bejelentkezés", "", MessageBoxButton.OK);
-                    LogTBF.Text = string.Empty;
-                    LogPBJ.Password = string.Empty;
                     //jatek statisztika
+                    if (login.Fid == "admin" && login.Pw == "admin")
+                    {
+                        LogTBF.Text = string.Empty;
+                        LogPBJ.Password = string.Empty;
+                        MessageBox.Show("Sikeres admin bejelentkezés", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //admin a = new admin(this);
+                        //this.Hide();
+                        //a.Show();
+                    }
+                    else
+                    {
+                        LogTBF.Text = string.Empty;
+                        LogPBJ.Password = string.Empty;
+                        MessageBox.Show("Sikeres bejelentkezés", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //statisztika s = new statisztika(this, login.Fid);
+                        //this.Hide();
+                        //s.Show();
+
+                    }
                 }
                 else
                 {

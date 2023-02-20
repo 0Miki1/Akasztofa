@@ -41,28 +41,24 @@ namespace Akasztofa
             }
         }
 
-        public bool Login(user u)
+        public user Login(user u)
         {
+            user fh = new user();
             if (Connect())
             {
                 string query = "Select ui,pw From felhasznalok where ui like @ui and pw like @pw";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ui", u.Fid);
                 cmd.Parameters.AddWithValue("@pw", u.Pw);
-                if (cmd.ExecuteScalar() == null)
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    Connect_Close();
-                    return true;
+                    fh.Fid = reader.GetString(0);
+                    fh.Pw = reader.GetString(1);
                 }
-                else
-                {
-                    Connect_Close();
-                    return false;
-                }
-
             }
-            Connect_Close();
-            return false;
+
+            return fh;
         }
     }
 }

@@ -9,14 +9,17 @@ namespace Akasztofa
 {
     internal class user
     {
-        private readonly string fid;
-        private readonly string pw;
+        private string fid;
+        private string pw;
         private int konnyuossz;
         private int konnyunyert;
         private int kozepossz;
         private int kozepnyert;
         private int nehezossz;
         private int neheznyert;
+
+        public string Fid { get => fid; set => fid = value; }
+        public string Pw { get => pw; set => pw = value; }
 
         public user(string fid, string pw)
         {
@@ -40,7 +43,16 @@ namespace Akasztofa
             this.neheznyert = neheznyert;
         }
 
-        public string Fid { get => fid; }
-        public string Pw { get => pw; }
+        public user()
+        {
+            fid = string.Empty;
+            pw = string.Empty;
+            konnyuossz = 0;
+            konnyunyert = 0;
+            kozepossz = 0;
+            konnyunyert = 0;
+            neheznyert = 0;
+            nehezossz = 0;
+        }
     }
 }
