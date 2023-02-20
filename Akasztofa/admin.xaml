@@ -13,7 +13,7 @@
                 <Label x:Name="la1" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top" FontSize="4" Width="75" Height="23" Foreground="White"/>
                 <TextBox x:Name="ta1" HorizontalAlignment="Center" Height="12" Margin="118,54,16,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" FontSize="6" TextChanged="pirosRoman"/>
                 <Button Content="Feltöltés" HorizontalAlignment="Center" Margin="118,99,16,0" VerticalAlignment="Top" Width="75" Height="30" Click="feltoltes"/>
-                <ComboBox x:Name="ca1" HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11" FontSize="4" DataContextChanged="fasza" SelectionChanged="faszom"/>
+                <ComboBox x:Name="ca1" HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11" FontSize="4" SelectionChanged="faszom"/>
                 <ComboBox x:Name="ct2" HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11" FontSize="4"/>
                 <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11" FontSize="4"/>
                 <Button Content="Törlés" HorizontalAlignment="Left" Margin="16,99,0,0" VerticalAlignment="Top" Width="72" Height="30" Click="Delete"/>

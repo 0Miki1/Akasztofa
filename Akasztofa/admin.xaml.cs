@@ -47,11 +47,6 @@ namespace Akasztofa
             
         }
 
-        private void fasza(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
-
         private void faszom(object sender, SelectionChangedEventArgs e)
         {
             int nehezseg = 0;
@@ -83,7 +78,7 @@ namespace Akasztofa
                 else
                 {
                     dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                    
+                    //van e mar ilyen ellenorzes
                 }
             }
             else
@@ -140,7 +135,9 @@ namespace Akasztofa
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            //kezdo betuk
+            //torles
+            //ujratoltes
         }
 
         private void open(object sender, RoutedEventArgs e)
@@ -160,6 +157,7 @@ namespace Akasztofa
 
         private void insertSzavak(string file)
         {
+            //van e mar ilyen ellenorzes
             FileStream fs = new FileStream(file, FileMode.Open);
             StreamReader sr = new StreamReader(fs, Encoding.UTF8);
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
