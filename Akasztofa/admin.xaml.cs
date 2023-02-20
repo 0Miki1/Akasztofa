@@ -168,16 +168,17 @@ namespace Akasztofa
             if (open.ShowDialog() == true)
             {
                 insertSzavak(open.FileName);
-                MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private void insertSzavak(string file)
         {
-            //van e mar ilyen ellenorzes
             FileStream fs = new FileStream(file, FileMode.Open);
             StreamReader sr = new StreamReader(fs, Encoding.UTF8);
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+
+            int sikeresSor = 0;
+            int sikertelenSor = 0;
 
             while (!sr.EndOfStream)
             {
@@ -186,20 +187,74 @@ namespace Akasztofa
 
                 if (seged >= 1 && seged <= 7)
                 {
-                    db.InsertSzo(new szo(sor, 1));
+                    szo sz = new szo(sor, 1);
+                    if (db.WordExists(sz))
+                    {
+                        if (db.InsertSzo(sz))
+                        {
+                            sikeresSor++;
+                        }
+                        else
+                        {
+                            sikertelenSor++;
+                        }
+                    }
+                    else
+                    {
+                        sikertelenSor++;
+                    }
                 }
                 else if (seged >= 8 && seged <= 12)
                 {
-                    db.InsertSzo(new szo(sor, 2));
+                    szo sz = new szo(sor, 2);
+                    if (db.WordExists(sz))
+                    {
+                        if (db.InsertSzo(sz))
+                        {
+                            sikeresSor++;
+                        }
+                        else
+                        {
+                            sikertelenSor++;
+                        }
+                    }
+                    else
+                    {
+                        sikertelenSor++;
+                    }
                 }
                 else if (seged >= 13 && seged <= 99)
                 {
-                    db.InsertSzo(new szo(sor, 3));
+                    szo sz = new szo(sor, 3);
+                    if (db.WordExists(sz))
+                    {
+                        if (db.InsertSzo(sz))
+                        {
+                            sikeresSor++;
+                        }
+                        else
+                        {
+                            sikertelenSor++;
+                        }
+                    }
+                    else
+                    {
+                        sikertelenSor++;
+                    }
                 }
             }
 
             sr.Close();
             fs.Close();
+
+            if (sikeresSor > 0)
+            {
+                MessageBox.Show($"Sikeres adatfelvétel, összes feltölteni kívánt sor: {(sikeresSor + sikertelenSor)}, ebből sikeres: {sikeresSor}, sikertelen: {sikertelenSor}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Sikertelen adatfelvétel, próbáljon meg egy másik állományt feltölteni!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
