@@ -61,17 +61,17 @@ namespace Akasztofa
         private void faszom(object sender, SelectionChangedEventArgs e)
         {
             int nehezseg = 0;
-            if (ca1.SelectedItem == "Könnyű")
+            if (Convert.ToString(ca1.SelectedItem) == "Könnyű")
             {
                 nehezseg = 1;
                 la1.Content = "Könnyű: 1-7 karakter";
             }
-            if (ca1.SelectedItem == "Közepes")
+            if (Convert.ToString(ca1.SelectedItem) == "Közepes")
             {
                 nehezseg = 2;
                 la1.Content = "Közepes: 8-12 karakter";
             }
-            if (ca1.SelectedItem == "Nehéz")
+            if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
             {
                 nehezseg = 3;
                 la1.Content = "Nehéz: 12-nél több karakter";
@@ -139,7 +139,7 @@ namespace Akasztofa
         {
             int karakterE = 0;
             int karakterV = 0;
-            if (ca1.SelectedItem == "Könnyű")
+            if (Convert.ToString(ca1.SelectedItem) == "Könnyű")
             {
                 karakterE = 1;
                 karakterV = 7;
@@ -152,7 +152,7 @@ namespace Akasztofa
                     la1.Foreground = new SolidColorBrush(Colors.Green);
                 }
             }
-            if (ca1.SelectedItem == "Közepes")
+            if (Convert.ToString(ca1.SelectedItem) == "Közepes")
             {
                 karakterE = 8;
                 karakterV = 12;
@@ -165,7 +165,7 @@ namespace Akasztofa
                     la1.Foreground = new SolidColorBrush(Colors.Green);
                 }
             }
-            if (ca1.SelectedItem == "Nehéz")
+            if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
             {
                 karakterE = 13;
                 karakterV = 99;
