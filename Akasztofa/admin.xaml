@@ -14,8 +14,8 @@
                 <TextBox x:Name="ta1" HorizontalAlignment="Center" Height="12" Margin="118,54,16,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" FontSize="6" TextChanged="pirosRoman"/>
                 <Button Content="Feltöltés" HorizontalAlignment="Center" Margin="118,99,16,0" VerticalAlignment="Top" Width="75" Height="30" Click="feltoltes"/>
                 <ComboBox x:Name="ca1" HorizontalAlignment="Center" Margin="118,20,16,0" VerticalAlignment="Top" Width="75" Height="11" FontSize="4" SelectionChanged="faszom"/>
-                <ComboBox x:Name="ct2" HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11" FontSize="4" SelectionChanged="szavak"/>
-                <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11" FontSize="4"/>
+                <ComboBox x:Name="ct2" HorizontalAlignment="Center" Margin="19,35,118,0" VerticalAlignment="Top" Width="72" Height="11" FontSize="4" />
+                <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="35,20,0,0" VerticalAlignment="Top" Width="35" Height="11" FontSize="4" SelectionChanged="szavak"/>
                 <Button Content="Törlés" HorizontalAlignment="Left" Margin="16,99,0,0" VerticalAlignment="Top" Width="72" Height="30" Click="Delete"/>
                 <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="3,0,108,0">
                     <Button Content="Fájl tallózás" HorizontalAlignment="Left" Margin="109,61,-98,0" VerticalAlignment="Top" Width="75" Click="open"/>

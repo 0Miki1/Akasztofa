@@ -90,7 +90,7 @@ namespace Akasztofa
 
             if (Connect())
             {
-                string query = "SELECT SUBSTRING(szo, 1, 1) FROM szavak";
+                string query = "SELECT DISTINCT SUBSTRING(szo, 1, 1) FROM szavak";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -128,9 +128,9 @@ namespace Akasztofa
 
             if (Connect())
             {
-                string query = "SELECT szo FROM szavak WHERE szo LIKE '@kezd%';";
+                string query = $"SELECT szo FROM szavak WHERE szo LIKE '{kezdobetu}%';";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@kezd", kezdobetu);
+                //cmd.Parameters.AddWithValue("@kezd", kezdobetu);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())

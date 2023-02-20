@@ -10,13 +10,12 @@ namespace Akasztofa
     {
         private string word;
         private int nehezseg;
-        private static List<string> nehezsegek;
+        private static List<string> nehezsegek = new List<string> { "Könnyű", "Közepes", "Nehéz" };
 
         public szo(string word, int nehezseg)
         {
             this.word = word;
             this.nehezseg = nehezseg;
-            nehezsegek = new List<string>() { "Könnyű", "Közepes", "Nehéz" };
         }
 
         public szo(string word)

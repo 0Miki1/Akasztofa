@@ -37,6 +37,9 @@ namespace Akasztofa
 
         private void adatbetoltes()
         {
+            ct1.Items.Clear();
+            ct2.Items.Clear();
+
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
             //kezdo betuk
             foreach (var item in db.KezdoBetuk())
@@ -79,11 +82,7 @@ namespace Akasztofa
         {
             if (ta1.Text.All(char.IsLetter))
             {
-                if (ca1.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Nem választott nehézségi szintet","Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
+                if (ta1.Text != string.Empty && ca1.SelectedIndex != -1)
                 {
                     dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
                     szo sz = new szo(ta1.Text, ca1.SelectedIndex + 1);
@@ -92,21 +91,40 @@ namespace Akasztofa
                     {
                         if (db.InsertSzo(sz))
                         {
+                            adatbetoltes();
                             MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                             ca1.SelectedIndex = -1;
                             ta1.Text = string.Empty;
+                            la1.Content = string.Empty;
                         }
                         else
                         {
                             MessageBox.Show("Sikertelen adatfelvétel, próbálja újra!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                             ca1.SelectedIndex = -1;
                             ta1.Text = string.Empty;
+                            la1.Content = string.Empty;
                         }
                     }
                     else
                     {
                         ta1.Text = string.Empty;
                         MessageBox.Show("Ez a szó már fel van véve, próbáljon meg egy másikat!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    
+                }
+                else
+                {
+                    if (ta1.Text == string.Empty && ca1.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Válasszon ki egy nehzségi szintet és adjon meg egy feltölteni kívánt szót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (ta1.Text == string.Empty && ca1.SelectedIndex != -1)
+                    {
+                        MessageBox.Show("Adjon meg egy feltölteni kívánt szót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nem választott nehézségi szintet", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -165,11 +183,13 @@ namespace Akasztofa
 
         private void szavak(object sender, SelectionChangedEventArgs e)
         {
+            ct2.Items.Clear();
+
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
 
             foreach (var item in db.SelectSzavak(Convert.ToString(ct1.SelectedItem)))
             {
-                ct2.Items.Add(item);
+                ct2.Items.Add(item.Word);
             }
         }
 
@@ -183,6 +203,7 @@ namespace Akasztofa
                 {
                     if (db.DeleteWord(new szo(Convert.ToString(ct2.SelectedItem))))
                     {
+                        ct1.SelectedIndex = -1;
                         ct2.SelectedIndex = -1;
                         //ujratoltes
                         adatbetoltes();
@@ -307,6 +328,7 @@ namespace Akasztofa
 
             if (sikeresSor > 0)
             {
+                adatbetoltes();
                 MessageBox.Show($"Sikeres adatfelvétel, összes feltölteni kívánt sor: {(sikeresSor + sikertelenSor)}, ebből sikeres: {sikeresSor}, sikertelen: {sikertelenSor}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
