@@ -41,9 +41,9 @@ namespace Akasztofa
                 if (RegPbJelsz.Password == RegPbJelszU.Password)
                 {
                     dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                    if (db.FhExists(RegTBFh.Text))
+                    if (db.FhExists(new user(RegTBFh.Text)))
                     {
-                        db.InsertInto(RegTBFh.Text, Convert.ToString(RegPbJelsz.Password));
+                        db.InsertInto(new user(RegTBFh.Text, RegPbJelsz.Password));
                         MessageBox.Show("Sikeres regisztráció","", MessageBoxButton.OK);
                         RegTBFh.Text = string.Empty;
                         RegPbJelsz.Password = string.Empty;
