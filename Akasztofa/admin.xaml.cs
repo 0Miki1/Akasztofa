@@ -58,23 +58,64 @@ namespace Akasztofa
             }
         }
 
-        private void faszom(object sender, SelectionChangedEventArgs e)
+        private void nehezsegChanged(object sender, SelectionChangedEventArgs e)
         {
-            int nehezseg = 0;
             if (Convert.ToString(ca1.SelectedItem) == "Könnyű")
             {
-                nehezseg = 1;
                 la1.Content = "Könnyű: 1-7 karakter";
             }
             if (Convert.ToString(ca1.SelectedItem) == "Közepes")
             {
-                nehezseg = 2;
                 la1.Content = "Közepes: 8-12 karakter";
             }
             if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
             {
-                nehezseg = 3;
                 la1.Content = "Nehéz: 12-nél több karakter";
+            }
+        }
+
+        private void szinValto(object sender, TextChangedEventArgs e)
+        {
+            int karakterE = 0;
+            int karakterV = 0;
+            if (Convert.ToString(ca1.SelectedItem) == "Könnyű")
+            {
+                karakterE = 1;
+                karakterV = 7;
+                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Green);
+                }
+            }
+            if (Convert.ToString(ca1.SelectedItem) == "Közepes")
+            {
+                karakterE = 8;
+                karakterV = 12;
+                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Green);
+                }
+            }
+            if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
+            {
+                karakterE = 13;
+                karakterV = 99;
+                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    la1.Foreground = new SolidColorBrush(Colors.Green);
+                }
             }
         }
 
@@ -134,52 +175,6 @@ namespace Akasztofa
                 MessageBox.Show("Nem szöveget írt be", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        private void pirosRoman(object sender, TextChangedEventArgs e)
-        {
-            int karakterE = 0;
-            int karakterV = 0;
-            if (Convert.ToString(ca1.SelectedItem) == "Könnyű")
-            {
-                karakterE = 1;
-                karakterV = 7;
-                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Red);
-                }
-                else
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Green);
-                }
-            }
-            if (Convert.ToString(ca1.SelectedItem) == "Közepes")
-            {
-                karakterE = 8;
-                karakterV = 12;
-                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Red);
-                }
-                else
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Green);
-                }
-            }
-            if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
-            {
-                karakterE = 13;
-                karakterV = 99;
-                if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Red);
-                }
-                else
-                {
-                    la1.Foreground = new SolidColorBrush(Colors.Green);
-                }
-            }
-        }
-
 
         private void szavak(object sender, SelectionChangedEventArgs e)
         {
