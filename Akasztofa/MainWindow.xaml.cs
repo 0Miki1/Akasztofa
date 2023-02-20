@@ -24,5 +24,18 @@ namespace Akasztofa
         {
             InitializeComponent();
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
+        }
+
+        private void regisztracio(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            regisztracio r = new regisztracio(this);
+            r.Show();
+        }
     }
 }
