@@ -22,6 +22,7 @@ namespace Akasztofa
     public partial class admin : Window
     {
         private MainWindow mw;
+
         public admin(MainWindow mw)
         {
             InitializeComponent();
@@ -35,16 +36,11 @@ namespace Akasztofa
         }
 
         private void betoltes(object sender, RoutedEventArgs e)
-        {
-            List<string> lista = new List<string>();
-            lista.Add("Könnyű");
-            lista.Add("Közepes");
-            lista.Add("Nehéz");
-            foreach (var item in lista)
+        { 
+            foreach (var item in szo.Nehezsegek)
             {
                 ca1.Items.Add(item);
             }
-            
         }
 
         private void faszom(object sender, SelectionChangedEventArgs e)
@@ -63,7 +59,7 @@ namespace Akasztofa
             if (ca1.SelectedItem == "Nehéz")
             {
                 nehezseg = 3;
-                la1.Content = "Nehéz: 12-nél több";
+                la1.Content = "Nehéz: 12-nél több karakter";
             }
         }
 
@@ -169,15 +165,15 @@ namespace Akasztofa
 
                 if (seged >= 1 && seged <= 7)
                 {
-                    db.InsertSzo(sor, 1);
+                    db.InsertSzo(new szo(sor, 1));
                 }
                 else if (seged >= 8 && seged <= 12)
                 {
-                    db.InsertSzo(sor, 2);
+                    db.InsertSzo(new szo(sor, 2));
                 }
                 else if (seged >= 13 && seged <= 99)
                 {
-                    db.InsertSzo(sor, 3);
+                    db.InsertSzo(new szo(sor, 3));
                 }
             }
 
