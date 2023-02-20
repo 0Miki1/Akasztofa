@@ -184,7 +184,7 @@ namespace Akasztofa
 
             foreach (var item in db.SelectSzavak(Convert.ToString(ct1.SelectedItem)))
             {
-                lb.Items.Add(item);
+                lb.Items.Add(item.Word);
             }
         }
 
