@@ -35,7 +35,7 @@ namespace Akasztofa
             mw.Show();
         }
 
-        private void betoltes(object sender, RoutedEventArgs e)
+        private void adatbetoltes()
         {
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
             //kezdo betuk
@@ -43,6 +43,11 @@ namespace Akasztofa
             {
                 ct1.Items.Add(item);
             }
+        }
+
+        private void betoltes(object sender, RoutedEventArgs e)
+        {
+            adatbetoltes();
 
             foreach (var item in szo.Nehezsegek)
             {
@@ -157,12 +162,57 @@ namespace Akasztofa
             }
         }
 
+
+        private void szavak(object sender, SelectionChangedEventArgs e)
+        {
+            dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+
+            foreach (var item in db.SelectSzavak(Convert.ToString(ct1.SelectedItem)))
+            {
+                ct2.Items.Add(item);
+            }
+        }
+
         private void Delete(object sender, RoutedEventArgs e)
         {
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-            
             //torles
-            //ujratoltes
+            if (ct1.Items.Count != 0)
+            {
+                if (ct1.SelectedIndex != -1 && ct2.SelectedIndex != -1)
+                {
+                    if (db.DeleteWord(new szo(Convert.ToString(ct2.SelectedItem))))
+                    {
+                        ct2.SelectedIndex = -1;
+                        //ujratoltes
+                        adatbetoltes();
+                        MessageBox.Show("Sikeres adattörlés!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    } else
+                    {
+                        MessageBox.Show("Sikertelen törlés, próbálja meg újra!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    if (ct1.SelectedIndex == -1 && ct2.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Válasszon ki egy kezdőbetűt a szűréshez és egy törölni kívánt szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                    }
+                    else if (ct1.SelectedIndex == -1 && ct2.SelectedIndex != -1)
+                    {
+                        MessageBox.Show("Válasszon ki egy kezdőbetűt a szűréshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Válasszon ki egy szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Először vegyen fel adatot az adatbázisba, hogy törölni lehessen!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void open(object sender, RoutedEventArgs e)

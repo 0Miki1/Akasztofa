@@ -19,6 +19,12 @@ namespace Akasztofa
             nehezsegek = new List<string>() { "Könnyű", "Közepes", "Nehéz" };
         }
 
+        public szo(string word)
+        {
+            this.word = word;
+            nehezseg = -1;
+        }
+
         public static List<string> Nehezsegek { get => nehezsegek; }
         public string Word { get => word; }
         public int Nehezseg { get => nehezseg; }

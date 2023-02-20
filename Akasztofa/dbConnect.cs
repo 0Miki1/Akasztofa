@@ -86,9 +86,10 @@ namespace Akasztofa
 
         public List<string> KezdoBetuk()
         {
+            List<string> lista = new List<string>();
+
             if (Connect())
             {
-                List<string> lista = new List<string>();
                 string query = "SELECT SUBSTRING(szo, 1, 1) FROM szavak";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -100,8 +101,47 @@ namespace Akasztofa
 
                 Connect_Close();
 
-                return lista;
             }
+
+            return lista;
+        }
+
+        public bool DeleteWord(szo sz)
+        {
+            if (Connect())
+            {
+                string query = "DELETE FROM szavak WHERE szo LIKE @word;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@word", sz.Word);
+                cmd.ExecuteNonQuery();
+                Connect_Close();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public List<szo> SelectSzavak(string kezdobetu)
+        {
+            List<szo> szavak = new List<szo>();
+
+            if (Connect())
+            {
+                string query = "SELECT szo FROM szavak WHERE szo LIKE '@kezd%';";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@kezd", kezdobetu);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    szavak.Add(new szo(reader.GetString(0)));
+                }
+
+                Connect_Close();
+            }
+
+            return szavak;
         }
     }
 }
