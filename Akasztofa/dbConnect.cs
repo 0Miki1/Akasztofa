@@ -106,13 +106,24 @@ namespace Akasztofa
             return lista;
         }
 
-        public bool DeleteWord(szo sz)
+        public bool DeleteWord(List<szo> lista)
         {
             if (Connect())
             {
-                string query = "DELETE FROM szavak WHERE szo LIKE @word;";
+                string query = "DELETE FROM szavak WHERE szo LIKE @word0";
+
+                for (int i = 1; i < lista.Count; i++)
+                {
+                    query += $" OR szo LIKE @word{i}";
+                }
+
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@word", sz.Word);
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue($"@word{i}", lista[i].Word);
+                }
+
                 cmd.ExecuteNonQuery();
                 Connect_Close();
 

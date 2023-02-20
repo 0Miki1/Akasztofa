@@ -10,12 +10,11 @@
         <Viewbox>
             <Grid Height="150" Width="209">
                 <GroupBox Header="Új Adat" Width="98" Foreground="White" FontSize="10" BorderBrush="Lime" Margin="107,-2,4,0"/>
-                <Label x:Name="la1" HorizontalAlignment="Left" Margin="118,33,0,0" VerticalAlignment="Top" FontSize="5" Width="75" Height="23" Foreground="White" Content="asd"/>
+                <Label x:Name="la1" HorizontalAlignment="Left" Margin="118,33,0,0" VerticalAlignment="Top" FontSize="5" Width="75" Height="23" Foreground="White" Content=""/>
                 <TextBox x:Name="ta1" HorizontalAlignment="Left" Height="12" Margin="118,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" FontSize="6" TextChanged="szinValto"/>
                 <Button Content="Feltöltés" HorizontalAlignment="Left" Margin="118,111,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="feltoltes"/>
                 <ComboBox x:Name="ca1" HorizontalAlignment="Left" Margin="118,23,0,0" VerticalAlignment="Top" Width="75" Height="12" FontSize="4" SelectionChanged="nehezsegChanged"/>
                 <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="56,23,0,0" VerticalAlignment="Top" Width="35" Height="12" FontSize="4" SelectionChanged="szavak"/>
-                <ComboBox x:Name="ct2" HorizontalAlignment="Left" Margin="16,56,0,0" VerticalAlignment="Top" Width="75" Height="12" FontSize="4" />
                 <Button Content="Törlés" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Delete"/>
                 <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="4,-2,107,0"></GroupBox>
                 <Button Content="Fájl tallózás" HorizontalAlignment="Left" Margin="118,81,0,0" VerticalAlignment="Top" Width="75" Click="open"/>
@@ -23,6 +22,8 @@
                 <Label Content="Találatok:" HorizontalAlignment="Left" Margin="11,43,0,0" VerticalAlignment="Top" FontSize="4" Foreground="White" />
                 <Label Content="Nehézségi szint:" HorizontalAlignment="Left" Margin="113,11,0,0" VerticalAlignment="Top" Foreground="White" FontSize="4"/>
                 <Label Content="Új szó:" HorizontalAlignment="Left" Margin="113,44,0,0" VerticalAlignment="Top" Foreground="White" FontSize="4"/>
+                <ListBox x:Name="lb" Margin="16,56,118,49" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontSize="4" SelectionMode="Multiple"/>
+
             </Grid>
         </Viewbox>
     </Grid>

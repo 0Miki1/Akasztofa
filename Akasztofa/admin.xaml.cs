@@ -38,18 +38,13 @@ namespace Akasztofa
         private void adatbetoltes()
         {
             ct1.Items.Clear();
-            ct2.Items.Clear();
+            lb.Items.Clear();
 
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
             //kezdo betuk
             foreach (var item in db.KezdoBetuk())
             {
                 ct1.Items.Add(item);
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                lb.Items.Add(i);
             }
         }
 
@@ -183,28 +178,35 @@ namespace Akasztofa
 
         private void szavak(object sender, SelectionChangedEventArgs e)
         {
-            ct2.Items.Clear();
+            lb.Items.Clear();
 
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
 
             foreach (var item in db.SelectSzavak(Convert.ToString(ct1.SelectedItem)))
             {
-                ct2.Items.Add(item.Word);
+                lb.Items.Add(item);
             }
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+            List<szo> szavak = new List<szo>();
+
+            foreach (var item in lb.SelectedItems)
+            {
+                szavak.Add(new szo(Convert.ToString(item)));
+            }
+
             //torles
             if (ct1.Items.Count != 0)
             {
-                if (ct1.SelectedIndex != -1 && ct2.SelectedIndex != -1)
+                if (ct1.SelectedIndex != -1 && lb.SelectedIndex != -1)
                 {
-                    if (db.DeleteWord(new szo(Convert.ToString(ct2.SelectedItem))))
+                    if (db.DeleteWord(szavak))
                     {
                         ct1.SelectedIndex = -1;
-                        ct2.SelectedIndex = -1;
+                        lb.SelectedIndex = -1;
                         //ujratoltes
                         adatbetoltes();
                         MessageBox.Show("Sikeres adattörlés!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -216,18 +218,18 @@ namespace Akasztofa
                 }
                 else
                 {
-                    if (ct1.SelectedIndex == -1 && ct2.SelectedIndex == -1)
+                    if (ct1.SelectedIndex == -1 && lb.SelectedIndex == -1)
                     {
-                        MessageBox.Show("Válasszon ki egy kezdőbetűt a szűréshez és egy törölni kívánt szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Válasszon ki egy kezdőbetűt a szűréshez és legalább egy törölni kívánt szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
 
                     }
-                    else if (ct1.SelectedIndex == -1 && ct2.SelectedIndex != -1)
+                    else if (ct1.SelectedIndex == -1 && lb.SelectedIndex != -1)
                     {
                         MessageBox.Show("Válasszon ki egy kezdőbetűt a szűréshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Válasszon ki egy szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Válasszon ki legalább egy szót a törléshez!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }

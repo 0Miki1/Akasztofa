@@ -27,5 +27,10 @@ namespace Akasztofa
         public static List<string> Nehezsegek { get => nehezsegek; }
         public string Word { get => word; }
         public int Nehezseg { get => nehezseg; }
+
+        public override string ToString()
+        {
+            return $"{word} | [{nehezsegek[nehezseg+1]}]";
+        }
     }
 }
