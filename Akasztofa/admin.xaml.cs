@@ -74,7 +74,28 @@ namespace Akasztofa
                 else
                 {
                     dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                    //van e mar ilyen ellenorzes
+                    szo sz = new szo(ta1.Text, ca1.SelectedIndex + 1);
+
+                    if (db.WordExists(sz))
+                    {
+                        if (db.InsertSzo(sz))
+                        {
+                            MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ca1.SelectedIndex = -1;
+                            ta1.Text = string.Empty;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sikertelen adatfelvétel, próbálja újra!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ca1.SelectedIndex = -1;
+                            ta1.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        ta1.Text = string.Empty;
+                        MessageBox.Show("Ez a szó már fel van véve, próbáljon meg egy másikat!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             else

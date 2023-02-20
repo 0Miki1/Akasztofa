@@ -58,5 +58,29 @@ namespace Akasztofa
                 return false;
             }
         }
+
+        public bool WordExists(szo sz)
+        {
+            if (Connect())
+            {
+                string query = "SELECT szo FROM szavak WHERE szo LIKE @word";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@word", sz.Word);
+
+                if (cmd.ExecuteScalar() == null)
+                {
+                    Connect_Close();    
+                    return true;
+                }
+                else
+                {
+                    Connect_Close();
+                    return false;
+                }
+
+            }
+
+            return false;
+        }
     }
 }
