@@ -36,7 +36,14 @@ namespace Akasztofa
         }
 
         private void betoltes(object sender, RoutedEventArgs e)
-        { 
+        {
+            dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+            //kezdo betuk
+            foreach (var item in db.KezdoBetuk())
+            {
+                ct1.Items.Add(item);
+            }
+
             foreach (var item in szo.Nehezsegek)
             {
                 ca1.Items.Add(item);
@@ -152,7 +159,8 @@ namespace Akasztofa
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-            //kezdo betuk
+            dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+            
             //torles
             //ujratoltes
         }

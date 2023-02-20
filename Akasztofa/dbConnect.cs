@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace Akasztofa
@@ -81,6 +82,26 @@ namespace Akasztofa
             }
 
             return false;
+        }
+
+        public List<string> KezdoBetuk()
+        {
+            if (Connect())
+            {
+                List<string> lista = new List<string>();
+                string query = "SELECT SUBSTRING(szo, 1, 1) FROM szavak";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lista.Add(reader.GetString(0));
+                }
+
+                Connect_Close();
+
+                return lista;
+            }
         }
     }
 }
