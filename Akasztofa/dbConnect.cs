@@ -90,7 +90,7 @@ namespace Akasztofa
 
             if (Connect())
             {
-                string query = "SELECT DISTINCT SUBSTRING(szo, 1, 1) FROM szavak";
+                string query = "SELECT DISTINCT SUBSTRING(szo, 1, 1) FROM szavak ORDER BY 1 ASC;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 

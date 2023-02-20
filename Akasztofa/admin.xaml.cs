@@ -46,6 +46,11 @@ namespace Akasztofa
             {
                 ct1.Items.Add(item);
             }
+
+            for (int i = 0; i < 10; i++)
+            {
+                lb.Items.Add(i);
+            }
         }
 
         private void betoltes(object sender, RoutedEventArgs e)
@@ -203,7 +208,8 @@ namespace Akasztofa
                         //ujratoltes
                         adatbetoltes();
                         MessageBox.Show("Sikeres adattörlés!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Sikertelen törlés, próbálja meg újra!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
