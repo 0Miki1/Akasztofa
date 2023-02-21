@@ -16,13 +16,14 @@
                 <ComboBox x:Name="ca1" HorizontalAlignment="Left" Margin="118,23,0,0" VerticalAlignment="Top" Width="75" Height="12" FontSize="4" SelectionChanged="nehezsegChanged" BorderThickness="0.75,0.75,0.75,0.75"/>
                 <ComboBox x:Name="ct1" HorizontalAlignment="Left" Margin="56,23,0,0" VerticalAlignment="Top" Width="35" Height="12" FontSize="4" SelectionChanged="szavak" BorderThickness="0.75,0.75,0.75,0.75" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
                 <Button Content="Törlés" HorizontalAlignment="Left" Margin="16,116,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Delete" FontSize="10" BorderThickness="0.75,0.75,0.75,0.75"/>
-                <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="5,-2,106,0"></GroupBox>
+                <GroupBox Header="Törlés" Width="98" Foreground="White" FontSize="10" BorderBrush="Red" Margin="4,-2,107,0"></GroupBox>
                 <Button Content="Fájl tallózás" HorizontalAlignment="Left" Margin="118,85,0,0" VerticalAlignment="Top" Width="75" Click="open" FontSize="9" BorderThickness="0.75,0.75,0.75,0.75"/>
                 <Label Content="Szűrés&#10;kezdőbetű szerint:" HorizontalAlignment="Left" Margin="12,18,0,0" VerticalAlignment="Top" Foreground="White" Height="20" Width="44" FontSize="4"/>
                 <Label Content="Találatok:" HorizontalAlignment="Left" Margin="11,43,0,0" VerticalAlignment="Top" FontSize="4" Foreground="White" />
                 <Label Content="Nehézségi szint:" HorizontalAlignment="Left" Margin="113,11,0,0" VerticalAlignment="Top" Foreground="White" FontSize="4"/>
                 <Label Content="Új szó:" HorizontalAlignment="Left" Margin="113,44,0,0" VerticalAlignment="Top" Foreground="White" FontSize="4"/>
                 <ListBox x:Name="lb" Margin="16,56,118,39" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontSize="4" SelectionMode="Multiple" BorderThickness="0.75,0.75,0.75,0.75"/>
+                <Button Content="Összes kijelölése" HorizontalAlignment="Left" Margin="59,46,0,0" VerticalAlignment="Top" FontSize="4" BorderThickness="0.6,0.6,0.6,0.6" Click="kijeloles"/>
 
             </Grid>
         </Viewbox>

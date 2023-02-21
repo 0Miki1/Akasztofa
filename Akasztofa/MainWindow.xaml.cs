@@ -29,6 +29,7 @@ namespace Akasztofa
         {
             admin a = new admin(this);
             a.Show();
+            this.Hide();
         }
     }
 }

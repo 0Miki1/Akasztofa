@@ -339,5 +339,17 @@ namespace Akasztofa
                 MessageBox.Show("Sikertelen adatfelvétel, próbáljon meg egy másik állományt feltölteni!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void kijeloles(object sender, RoutedEventArgs e)
+        {
+            if (lb.SelectedItems.Count < lb.Items.Count)
+            {
+                lb.SelectAll();
+            }
+            else if (lb.SelectedItems.Count == lb.Items.Count)
+            {
+                lb.UnselectAll();
+            }
+        }
     }
 }
