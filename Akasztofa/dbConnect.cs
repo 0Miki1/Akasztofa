@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace Akasztofa
@@ -46,16 +47,19 @@ namespace Akasztofa
             user fh = new user();
             if (Connect())
             {
-                string query = "Select ui,pw From felhasznalok where ui like @ui and pw like @pw";
+                string query = "SELECT ui,pw FROM felhasznalok WHERE ui LIKE @ui AND pw LIKE @pw;";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ui", u.Fid);
                 cmd.Parameters.AddWithValue("@pw", u.Pw);
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
                     fh.Fid = reader.GetString(0);
                     fh.Pw = reader.GetString(1);
                 }
+
+                Connect_Close();
             }
 
             return fh;

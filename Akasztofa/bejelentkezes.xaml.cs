@@ -55,7 +55,8 @@ namespace Akasztofa
             if (LogTBF.Text != string.Empty &&LogPBJ.Password != string.Empty)
             {
                 dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                user login = db.Login(new user(LogTBF.Text, stringToSha256(LogPBJ.Password)));
+                user login = db.Login(new user(LogTBF.Text, stringToSha256(Convert.ToString(LogPBJ.Password))));
+
                 if (login.Fid != string.Empty && login.Pw != string.Empty)
                 {
                     //jatek statisztika
