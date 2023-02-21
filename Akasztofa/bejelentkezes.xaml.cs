@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,16 +35,31 @@ namespace Akasztofa
             mw.Show();
         }
 
+        //mainwindow-ba static
+        private string stringToSha256(string jelsz)
+        {
+            SHA256 sha = new SHA256Managed();
+            byte[] b = sha.ComputeHash(Encoding.UTF8.GetBytes(jelsz));
+
+            StringBuilder strbldr = new StringBuilder();
+            for (int i = 0; i < b.Length; i++)
+            {
+                strbldr.Append(b[i].ToString("x2"));
+            }
+
+            return strbldr.ToString();
+        }
+
         private void login(object sender, RoutedEventArgs e)
         {
             if (LogTBF.Text != string.Empty &&LogPBJ.Password != string.Empty)
             {
                 dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                user login = db.Login(new user(LogTBF.Text, LogPBJ.Password));
+                user login = db.Login(new user(LogTBF.Text, stringToSha256(LogPBJ.Password)));
                 if (login.Fid != string.Empty && login.Pw != string.Empty)
                 {
                     //jatek statisztika
-                    if (login.Fid == "admin" && login.Pw == "admin")
+                    if (login.Fid == "admin" && login.Pw == stringToSha256("admin"))
                     {
                         LogTBF.Text = string.Empty;
                         LogPBJ.Password = string.Empty;
