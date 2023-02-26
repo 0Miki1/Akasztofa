@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +42,7 @@ namespace Akasztofa
             }
         }
 
+
         public bool InsertSzo(szo sz)
         {
             if (Connect())
@@ -71,6 +72,18 @@ namespace Akasztofa
                 if (cmd.ExecuteScalar() == null)
                 {
                     Connect_Close();    
+=======
+       public bool FhExists(user u)
+       {
+            if (Connect())
+            {
+                string query = "SELECT ui FROM felhasznalok WHERE ui LIKE @ui;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ui", u.Fid);
+                if (cmd.ExecuteScalar() == null)
+                {
+                    Connect_Close();
+
                     return true;
                 }
                 else
@@ -78,6 +91,7 @@ namespace Akasztofa
                     Connect_Close();
                     return false;
                 }
+
 
             }
 
@@ -153,6 +167,26 @@ namespace Akasztofa
             }
 
             return szavak;
+        }
+            }
+            Connect_Close();
+            return false;
+        }
+
+        public bool InsertInto(user u)
+        {
+            if (Connect())
+            {
+                string query = "Insert Into felhasznalok(ui, pw) Values(@ui, @pw)";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@ui", u.Fid);
+                cmd.Parameters.AddWithValue("@pw", u.Pw);
+                cmd.ExecuteNonQuery();
+
+                Connect_Close();
+                return true;
+            }
+            return false;
         }
     }
 }
