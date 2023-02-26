@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Akasztofa
 {
-    class szo
+    internal class szo
     {
         private string word;
         private int nehezseg;

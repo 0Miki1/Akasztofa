@@ -27,7 +27,6 @@
                 <Label FontFamily="Segoe UI Symbol" Content="&#xE112; Vissza" HorizontalAlignment="Left" Margin="-1,-1,0,0" VerticalAlignment="Top" Foreground="#FFD2D2D2" FontSize="8" Width="44" MouseLeftButtonUp="vissza"/>
                 <Label Content="Adminisztrátor" HorizontalAlignment="Center" Margin="0,-1,0,0" VerticalAlignment="Top" Foreground="#FFD2D2D2" FontWeight="Bold"/>
                 <Label FontFamily="Segoe UI Symbol" Content="Főoldal &#xE10F;" HorizontalAlignment="Left" Margin="162,-1,0,0" VerticalAlignment="Top" Foreground="#FFD2D2D2" FontSize="8" Width="47" MouseLeftButtonUp="fooldal"/>
-                <!-- komment -->
             </Grid>
         </Viewbox>
     </Grid>
