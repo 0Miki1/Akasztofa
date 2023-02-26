@@ -120,6 +120,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="akasztofa.png" />
+    <Resource Include="akasztofa1.png" />
+    <Resource Include="akasztofa10.png" />
+    <Resource Include="akasztofa11.png" />
+    <Resource Include="akasztofa12.png" />
+    <Resource Include="akasztofa13.png" />
+    <Resource Include="akasztofa2.png" />
+    <Resource Include="akasztofa3.png" />
+    <Resource Include="akasztofa4.png" />
+    <Resource Include="akasztofa5.png" />
+    <Resource Include="akasztofa6.png" />
+    <Resource Include="akasztofa7.png" />
+    <Resource Include="akasztofa8.png" />
+    <Resource Include="akasztofa9.png" />
+    <Resource Include="deglett.png" />
     <Content Include="mysql.data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

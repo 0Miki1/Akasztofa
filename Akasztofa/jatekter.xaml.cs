@@ -11,8 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Drawing.Bitmap;
-using System.Drawing.Imaging.Metafile;
 
 namespace Akasztofa
 {
@@ -26,9 +24,9 @@ namespace Akasztofa
             InitializeComponent();
         }
 
-        private void load(object sender, RoutedEventArgs e)
+        private void tipp(object sender, RoutedEventArgs e)
         {
-            image = Image.FromFile("C:\\Users\\nagya\\source\\repos\\0Miki1\\Akasztofa\\Akasztofa\\frames");
+
         }
     }
 }

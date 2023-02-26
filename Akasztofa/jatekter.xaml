@@ -5,9 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="jatekter" Height="450" Width="800" Loaded="load">
+        Title="Játéktér" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#FF2C2C2C">
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="188" Margin="10,10,0,0" VerticalAlignment="Top" Width="141"/>
+        <Viewbox>
+            <Grid Height="100" Width="180">
+                <Grid Height="98" Margin="2,1,109,1" Background="White">
+                    <Image HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" Width="60" Source="/deglett.png" Margin="0,9,0,0" RenderTransformOrigin="0.5,0.5">
+                    </Image>
+                    <Label Content="0/15" HorizontalAlignment="Center" Margin="0,77,0,0" VerticalAlignment="Top" FontSize="7"/>
 
+                </Grid>
+                <Label x:Name="L1" Content=""  HorizontalAlignment="Left" Margin="90,1,0,0" VerticalAlignment="Top" FontSize="8" Width="74" Foreground="#FF00E6FF"/>
+                <TextBox x:Name="T1" HorizontalAlignment="Left" Margin="90,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" Height="9" FontSize="4" VerticalContentAlignment="Center"/>
+                <Button Content="Button" HorizontalAlignment="Left" Margin="105,0,0,0" VerticalAlignment="Center" Click="tipp"/>
+            </Grid>
+        </Viewbox>
     </Grid>
 </Window>

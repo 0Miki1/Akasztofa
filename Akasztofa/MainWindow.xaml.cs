@@ -27,9 +27,12 @@ namespace Akasztofa
 
         private void bejelentkezes(object sender, RoutedEventArgs e)
         {
-            bejelentkezes b = new bejelentkezes(this);
+            //bejelentkezes b = new bejelentkezes(this);
+            //this.Hide();
+            //b.Show();
+            jatekter j = new jatekter();
             this.Hide();
-            b.Show();
+            j.Show();
         }
     }
 }
