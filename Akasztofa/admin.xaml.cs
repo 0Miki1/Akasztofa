@@ -42,7 +42,7 @@ namespace Akasztofa
             lb.Items.Clear();
 
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-            //kezdo betuk
+            //kezdo betukk
             foreach (var item in db.KezdoBetuk())
             {
                 ct1.Items.Add(item);
