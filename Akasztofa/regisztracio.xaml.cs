@@ -35,7 +35,7 @@ namespace Akasztofa
             mw.Show();
         }
 
-        //mainwindow-ba static
+        //mainwindow-ba static-nak hozzaadni
         private string stringToSha256(string jelsz)
         {
             SHA256 sha = new SHA256Managed();
