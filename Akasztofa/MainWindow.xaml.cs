@@ -25,6 +25,13 @@ namespace Akasztofa
             InitializeComponent();
         }
 
+
+        private void anyad(object sender, RoutedEventArgs e)
+        {
+            admin a = new admin(this);
+            a.Show();
+            this.Hide();
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);

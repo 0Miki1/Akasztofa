@@ -10,6 +10,8 @@
         <Viewbox>
             <StackPanel>
                 <Label Content="Akasztófa" Foreground="White" Height="25" Width="108" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <Button Content="Bejelentkezés" Height="17" Width="111" Margin="2,0,2,2.5" FontSize="8" BorderBrush="#FF707070" Background="#FFDDDDDD" Click="anyad" />
+                <Button Content="Regisztráció" Height="17" Width="111" FontSize="8" Margin="2,0,2,2.5" />
                 <Button Content="Bejelentkezés" Height="17" Width="111" Margin="2,0,2,2.5" FontSize="8" BorderBrush="#FF707070" Background="#FFDDDDDD" BorderThickness="0.75,0.75,0.75,0.75" />
                 <Button Content="Regisztráció" Height="17" Width="111" FontSize="8" Margin="2,0,2,2.5" Click="regisztracio" BorderThickness="0.75,0.75,0.75,0.75" />
             </StackPanel>
