@@ -58,9 +58,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="regisztracio.xaml.cs">
-      <DependentUpon>regisztracio.xaml</DependentUpon>
-    </Compile>
     <Compile Include="szo.cs" />
     <Page Include="admin.xaml">
       <SubType>Designer</SubType>
