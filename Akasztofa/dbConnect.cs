@@ -41,8 +41,8 @@ namespace Akasztofa
             }
         }
 
-         public bool FhExists(user u)
-       {
+        public bool FhExists(user u)
+        {
             if (Connect())
             {
                 string query = "SELECT ui FROM felhasznalok WHERE ui LIKE @ui;";
