@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="statisztika" Height="450" Width="800">
+        Title="statisztika" Height="357" Width="381">
     <Grid>
-        
+        <Label Content="Abel Miklos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Könnyű" HorizontalAlignment="Left" Margin="44,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Közepes" HorizontalAlignment="Left" Margin="153,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nehéz" HorizontalAlignment="Left" Margin="270,66,0,0" VerticalAlignment="Top"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,97,265,54"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="138,97,137,92"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="255,97,20,67"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top"/>
+        <Button Content="Új Játék" HorizontalAlignment="Left" Margin="288,298,0,0" VerticalAlignment="Top" Height="33" Width="83"/>
+
     </Grid>
 </Window>

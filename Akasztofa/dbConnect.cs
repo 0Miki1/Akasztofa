@@ -72,7 +72,11 @@ namespace Akasztofa
                 string query = "SELECT konnyuossz,konnyunyert,kozepesossz,kozepesnyert,nehezossz,neheznyert FROM jatekok WHERE fid like @fid";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@fid", fid);
-                cmd.ExecuteReader();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read)
+                {
+                    reader.GetString
+                }
             }
             return false;
         }
