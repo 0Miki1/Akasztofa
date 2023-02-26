@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="statisztika" Height="400" Width="400" Background="#FF2C2C2C" Loaded="Loaded">
+        Title="statisztika" Height="400" Width="600" Background="#FF2C2C2C" Loaded="load">
     <Grid>
         <Viewbox>
-            <Grid Height="90" Width="100">
-                <Label Content="Abel Miklos" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" Height="20" FontSize="5" Width="48" Foreground="White"/>
-                <Label Content="Könnyű" HorizontalAlignment="Right" Margin="0,22,70,0" VerticalAlignment="Top" Height="15" FontSize="4" Foreground="White"/>
+            <Grid Height="90" Width="127">
+                <Label x:Name="labelName" Content="" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" Height="20" FontSize="5" Width="61" Foreground="White"/>
+                <Label Content="Könnyű" HorizontalAlignment="Left" Margin="7,22,0,0" VerticalAlignment="Top" Height="15" FontSize="4" Foreground="White"/>
                 <Label Content="Közepes" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Height="15" FontSize="4" Foreground="White"/>
                 <Label Content="Nehéz" HorizontalAlignment="Right" Margin="0,22,10,0" VerticalAlignment="Top" Height="15" FontSize="4" Foreground="White"/>
-                <Label Content="Összes Játék: " HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center" Width="30" Height="15" FontSize="3" Foreground="White"/>
-                <Label Content="Nyert Játék:" HorizontalAlignment="Left" Margin="2,53,0,0" VerticalAlignment="Top" Width="30" Height="15" FontSize="3" Foreground="White"/>
-                <Label Content="Összes Játék: " HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="15" FontSize="3" Foreground="White"/>
-                <Label Content="Nyert Játék:" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" Width="30" Height="15" FontSize="3" Foreground="White"/>
-                <Label Content="Összes Játék: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="15" FontSize="3" Foreground="White" Margin="65,0,0,0"/>
-                <Label Content="Nyert Játék:" HorizontalAlignment="Left" Margin="65,53,0,0" VerticalAlignment="Top" Width="30" Height="15" FontSize="3" Foreground="White"/>
-                <Button Content="Új Játék" HorizontalAlignment="Left" Margin="69,68,0,0" VerticalAlignment="Top" Height="17" Width="26" FontSize="4"/>
-                <Label Content="Összes Játék : " HorizontalAlignment="Left" Margin="2,70,0,0" VerticalAlignment="Top" Width="30" Height="15" FontSize="3" Foreground="White"/>
+                <Label x:Name="l1" Content="Összes Játék: " HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center" Width="42" Height="14" FontSize="3" Foreground="White"/>
+                <Label x:Name="l2" Content="Nyert Játék:" HorizontalAlignment="Left" Margin="2,53,0,0" VerticalAlignment="Top" Width="42" Height="15" FontSize="3" Foreground="White"/>
+                <Label x:Name="l3" Content="Összes Játék: " HorizontalAlignment="Center" VerticalAlignment="Center" Width="48" Height="14" FontSize="3" Foreground="White"/>
+                <Label x:Name="l4" Content="Nyert Játék:" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" Width="48" Height="15" FontSize="3" Foreground="White"/>
+                <Label x:Name="l5" Content="Összes Játék: " HorizontalAlignment="Left" VerticalAlignment="Center" Width="39" Height="14" FontSize="3" Foreground="White" Margin="88,0,0,0"/>
+                <Label x:Name="l6" Content="Nyert Játék:" HorizontalAlignment="Right" Margin="0,53,0,0" VerticalAlignment="Top" Width="39" Height="15" FontSize="3" Foreground="White"/>
+                <Label x:Name="lOsszes" Content="Összes Játék : " HorizontalAlignment="Left" Margin="2,70,0,0" VerticalAlignment="Top" Width="42" Height="15" FontSize="3" Foreground="White"/>
+                <Label Content="Új Játék" HorizontalAlignment="Left" Margin="82,70,0,0" VerticalAlignment="Top" Height="15" FontSize="4" Foreground="White"/>
+                <Label FontFamily="Segoe UI Symbol" Content="&#xE102;" HorizontalAlignment="Left" Margin="96,65,0,0" VerticalAlignment="Top" Height="26" Width="23" Foreground="White" MouseLeftButtonUp="Game"/>
             </Grid>
         </Viewbox>
     </Grid>

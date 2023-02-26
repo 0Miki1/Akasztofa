@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Akasztofa
 {
-    internal class user
+    public class user
     {
         private readonly string fid;
         private readonly string pw;
