@@ -22,7 +22,6 @@ namespace Akasztofa
     public partial class admin : Window
     {
         private MainWindow mw;
-        private bool joadat;
 
         public admin(MainWindow mw)
         {
@@ -86,14 +85,10 @@ namespace Akasztofa
                 if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Red);
-                    feltoltG.IsEnabled = false;
-                    joadat = false;
                 }
                 else
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Green);
-                    feltoltG.IsEnabled = true;
-                    joadat = true;
                 }
             }
             if (Convert.ToString(ca1.SelectedItem) == "Közepes")
@@ -103,15 +98,10 @@ namespace Akasztofa
                 if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Red);
-                    feltoltG.IsEnabled = false;
-                    joadat = false;
                 }
                 else
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Green);
-                    feltoltG.IsEnabled = true;
-                    joadat = true;
-
                 }
             }
             if (Convert.ToString(ca1.SelectedItem) == "Nehéz")
@@ -121,14 +111,10 @@ namespace Akasztofa
                 if (ta1.Text.Length < karakterE || ta1.Text.Length > karakterV)
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Red);
-                    feltoltG.IsEnabled = false;
-                    joadat = false;
                 }
                 else
                 {
                     la1.Foreground = new SolidColorBrush(Colors.Green);
-                    feltoltG.IsEnabled = true;
-                    joadat = true;
                 }
             }
         }
@@ -144,27 +130,20 @@ namespace Akasztofa
 
                     if (db.WordExists(sz))
                     {
-                        if (joadat)
+                        if (db.InsertSzo(sz))
                         {
-                            if (db.InsertSzo(sz))
-                            {
-                                adatbetoltes();
-                                MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                                ca1.SelectedIndex = -1;
-                                ta1.Text = string.Empty;
-                                la1.Content = string.Empty;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Sikertelen adatfelvétel, próbálja újra!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                                ca1.SelectedIndex = -1;
-                                ta1.Text = string.Empty;
-                                la1.Content = string.Empty;
-                            }
+                            adatbetoltes();
+                            MessageBox.Show("Sikeres adatfelvétel!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ca1.SelectedIndex = -1;
+                            ta1.Text = string.Empty;
+                            la1.Content = string.Empty;
                         }
                         else
                         {
-                            MessageBox.Show("Ellenőrízze, hogy megfelelő hosszúságú adatot írt be!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Sikertelen adatfelvétel, próbálja újra!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                            ca1.SelectedIndex = -1;
+                            ta1.Text = string.Empty;
+                            la1.Content = string.Empty;
                         }
                     }
                     else
@@ -371,19 +350,6 @@ namespace Akasztofa
             {
                 lb.UnselectAll();
             }
-        }
-
-        private void vissza(object sender, MouseButtonEventArgs e)
-        {
-            //bejelentkezes b = new bejelentkezes(mw);
-            //this.Close();
-            //b.Show();
-        }
-
-        private void fooldal(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-            mw.Show();
         }
     }
 }
