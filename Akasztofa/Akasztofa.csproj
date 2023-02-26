@@ -61,6 +61,7 @@
     <Compile Include="statisztika.xaml.cs">
       <DependentUpon>statisztika.xaml</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <Page Include="bejelentkezes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

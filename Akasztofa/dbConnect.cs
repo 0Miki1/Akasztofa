@@ -65,20 +65,26 @@ namespace Akasztofa
             return false;
         }
 
-        public bool SelectStat(string fid)
+        public user SelectStat(string fid)
         {
+            user roman = new user(fid);
             if (Connect())
             {
                 string query = "SELECT konnyuossz,konnyunyert,kozepesossz,kozepesnyert,nehezossz,neheznyert FROM jatekok WHERE fid like @fid";
                 MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@fid", fid);
+                cmd.Parameters.AddWithValue("@fid", roman.Fid);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read)
+                while (reader.Read())
                 {
-                    reader.GetString
+                    roman.Konnyuossz = Convert.ToInt32(reader.GetString(0));
+                    roman.Konnyunyert = Convert.ToInt32(reader.GetString(1));
+                    roman.Kozepossz = reader.GetInt32(2);
+                    roman.Kozepnyert = reader.GetInt32(3);
+                    roman.Nehezossz = reader.GetInt32(4);
+                    roman.Neheznyert = reader.GetInt32(5);
                 }
             }
-            return false;
+            return roman;
         }
     }
 }

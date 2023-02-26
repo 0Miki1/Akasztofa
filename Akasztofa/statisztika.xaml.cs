@@ -19,9 +19,16 @@ namespace Akasztofa
     /// </summary>
     public partial class statisztika : Window
     {
-        public statisztika()
+        MainWindow mw;
+        public statisztika(MainWindow mw)
         {
             InitializeComponent();
+            this.mw = mw;
+        }
+
+        private void Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
