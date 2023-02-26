@@ -25,24 +25,11 @@ namespace Akasztofa
             InitializeComponent();
         }
 
-
         private void anyad(object sender, RoutedEventArgs e)
         {
             admin a = new admin(this);
             a.Show();
             this.Hide();
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            Application.Current.Shutdown();
-        }
-
-        private void regisztracio(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            regisztracio r = new regisztracio(this);
-            r.Show();
         }
     }
 }
