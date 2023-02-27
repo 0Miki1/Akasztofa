@@ -30,7 +30,7 @@ namespace Akasztofa
             //bejelentkezes b = new bejelentkezes(this);
             //this.Hide();
             //b.Show();
-            jatekter j = new jatekter();
+            jatekter j = new jatekter(3, new user("a"));
             this.Hide();
             j.Show();
         }

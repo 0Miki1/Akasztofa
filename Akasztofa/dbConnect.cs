@@ -76,5 +76,80 @@ namespace Akasztofa
             }
             return false;
         }
+
+        public bool UpdateFasz(string fid, int nehezseg, int nyert)
+        {
+            if (Connect())
+            {
+                if (nyert == 1)
+                {
+                    if (nehezseg == 1)
+                    {
+                        string query = "Update jatekok set konnyuossz = konnyuossz + 1, konnyunyert = konnyunyert + 1 where @fid like fid";
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@fid", fid);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                    {
+                        if (nehezseg == 2)
+                        {
+                            string query = "Update jatekok set kozepesossz = kozepesossz + 1, kozepesnyert = kozepesnyert + 1 where @fid like fid";
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+                            cmd.Parameters.AddWithValue("@fid", fid);
+                            cmd.ExecuteNonQuery();
+                            return true;
+                        }
+                        else
+                        {
+                            if (nehezseg == 3)
+                            {
+                                string query = "Update jatekok set nehezossz = nehezossz + 1, neheznyert = neheznyert + 1 where @fid like fid";
+                                MySqlCommand cmd = new MySqlCommand(query, con);
+                                cmd.Parameters.AddWithValue("@fid", fid);
+                                cmd.ExecuteNonQuery();
+                                return true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (nehezseg == 1)
+                    {
+                        string query = "Update jatekok set konnyuossz = konnyuossz + 1 where @fid like fid";
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@fid", fid);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                    {
+                        if (nehezseg == 2)
+                        {
+                            string query = "Update jatekok set kozepesossz = kozepesossz + 1 where @fid like fid";
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+                            cmd.Parameters.AddWithValue("@fid", fid);
+                            cmd.ExecuteNonQuery();
+                            return true;
+                        }
+                        else
+                        {
+                            if (nehezseg == 3)
+                            {
+                                string query = "Update jatekok set nehezossz = nehezossz + 1 where @fid like fid";
+                                MySqlCommand cmd = new MySqlCommand(query, con);
+                                cmd.Parameters.AddWithValue("@fid", fid);
+                                cmd.ExecuteNonQuery();
+                                return true;
+                            }
+                        }
+                    }
+                }
+                Connect_Close();
+            }
+            return false;
+        }
     }
 }
