@@ -24,7 +24,12 @@ namespace Akasztofa
             InitializeComponent();
         }
 
-        private void tipp(object sender, RoutedEventArgs e)
+        private void tipp(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void exit(object sender, RoutedEventArgs e)
         {
 
         }

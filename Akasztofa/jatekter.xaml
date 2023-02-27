@@ -15,10 +15,16 @@
                     <Label Content="0/15" HorizontalAlignment="Center" Margin="0,77,0,0" VerticalAlignment="Top" FontSize="7"/>
 
                 </Grid>
-                <Label x:Name="L1" Content="haa"  HorizontalAlignment="Left" Margin="90,2,0,0" VerticalAlignment="Top" FontSize="6" Width="74" Foreground="#FF00E6FF"/>
-                <Label x:Name="L2" Content="  -"  HorizontalAlignment="Left" Margin="89,3,0,0" VerticalAlignment="Top" FontSize="8" Width="74" Foreground="#FF00E6FF"/>
-                <TextBox  x:Name="T1" HorizontalAlignment="Left" Margin="90,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" Height="9" FontSize="4" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red"/>
-                <Button Content="Button" HorizontalAlignment="Left" Margin="105,0,0,0" VerticalAlignment="Center" Click="tipp"/>
+                <Grid Margin="76,0,2,0">
+                    <Label x:Name="L1" Content="__________________"  HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="6" Width="94" Foreground="#FF00E6FF" FontFamily="Lucida Sans Unicode" Margin="0,4,0,0" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="Tipp" HorizontalAlignment="Left" Margin="51,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" FontSize="4" BorderThickness="0.5,0.5,0.5,0.5" Foreground="Black" Background="#FFB5B5B5" TextChanged="tipp"/>
+                    <Label Content="Tipp:" HorizontalAlignment="Left" Margin="30,18,0,0" VerticalAlignment="Top" FontSize="5" Foreground="#FFEDEDED"/>
+                    <TextBox x:Name="RTipp" HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" Height="40" BorderThickness="0.5,0.5,0.5,0.5" FontSize="4" Text="Helytelen tippek:                                  "/>
+                    <Button Content="Kilépés&#xE10A;" HorizontalAlignment="Center" Margin="0,85,0,0" VerticalAlignment="Top" BorderThickness="0.5,0.5,0.5,0.5" FontSize="3" Height="7" Width="43" FontFamily="Segoe UI Symbol" Click="exit"/>
+
+                </Grid>
+                <!--Baskerville Old Face; Cascadia; Lucida-->
+
             </Grid>
         </Viewbox>
     </Grid>
