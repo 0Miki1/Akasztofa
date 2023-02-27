@@ -8,15 +8,16 @@
         Title="Játéktér" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#FF2C2C2C">
     <Grid>
         <Viewbox>
-            <Grid Height="100" Width="180">
+            <Grid Height="100" Width="180" >
                 <Grid Height="98" Margin="2,1,109,1" Background="White">
                     <Image HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" Width="60" Source="/deglett.png" Margin="0,9,0,0" RenderTransformOrigin="0.5,0.5">
                     </Image>
                     <Label Content="0/15" HorizontalAlignment="Center" Margin="0,77,0,0" VerticalAlignment="Top" FontSize="7"/>
 
                 </Grid>
-                <Label x:Name="L1" Content=""  HorizontalAlignment="Left" Margin="90,1,0,0" VerticalAlignment="Top" FontSize="8" Width="74" Foreground="#FF00E6FF"/>
-                <TextBox x:Name="T1" HorizontalAlignment="Left" Margin="90,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" Height="9" FontSize="4" VerticalContentAlignment="Center"/>
+                <Label x:Name="L1" Content="haa"  HorizontalAlignment="Left" Margin="90,2,0,0" VerticalAlignment="Top" FontSize="6" Width="74" Foreground="#FF00E6FF"/>
+                <Label x:Name="L2" Content="  -"  HorizontalAlignment="Left" Margin="89,3,0,0" VerticalAlignment="Top" FontSize="8" Width="74" Foreground="#FF00E6FF"/>
+                <TextBox  x:Name="T1" HorizontalAlignment="Left" Margin="90,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="66" Height="9" FontSize="4" VerticalContentAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Red"/>
                 <Button Content="Button" HorizontalAlignment="Left" Margin="105,0,0,0" VerticalAlignment="Center" Click="tipp"/>
             </Grid>
         </Viewbox>
