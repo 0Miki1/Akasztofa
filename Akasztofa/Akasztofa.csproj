@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="admin.xaml.cs">
+<Compile Include="admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="regisztracio.xaml.cs">
@@ -70,6 +70,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<Compile Include="user.cs" />
+    <Page Include="bejelentkezes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="jatekter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,12 +90,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bejelentkezes.xaml.cs">
+      <DependentUpon>bejelentkezes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dbConnect.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="regisztracio.xaml">
+    <Page Include="modvalaszto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="statisztika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +135,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="akasztofa.sql" />
+    <Resource Include="akasztofa0.png" />
+    <Resource Include="akasztofa1.png" />
+    <Resource Include="akasztofa10.png" />
+    <Resource Include="akasztofa11.png" />
+    <Resource Include="akasztofa12.png" />
+    <Resource Include="akasztofa13.png" />
+    <Resource Include="akasztofa2.png" />
+    <Resource Include="akasztofa3.png" />
+    <Resource Include="akasztofa4.png" />
+    <Resource Include="akasztofa5.png" />
+    <Resource Include="akasztofa6.png" />
+    <Resource Include="akasztofa7.png" />
+    <Resource Include="akasztofa8.png" />
+    <Resource Include="akasztofa9.png" />
+    <Resource Include="akasztofa-1.png" />
     <Content Include="mysql.data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

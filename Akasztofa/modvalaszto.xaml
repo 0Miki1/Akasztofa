@@ -1,0 +1,20 @@
+﻿<Window x:Class="Akasztofa.modvalaszto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Akasztofa"
+        mc:Ignorable="d"
+        Title="Módválasztó" Height="433" Width="800" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Viewbox>
+            <Grid Height="94" Width="183">
+                <Label Content="Válassz egy nehézségi szintet!" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="10"/>
+                <Button Content="Könnyű" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Width="128" FontSize="9" BorderThickness="0.5,0.5,0.5,0.5" Click="konnyu"/>
+                <Button Content="Közepes" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Width="128" FontSize="9" BorderThickness="0.5,0.5,0.5,0.5" Click="kozepes"/>
+                <Button Content="Nehéz" HorizontalAlignment="Center" Margin="0,71,0,0" VerticalAlignment="Top" Width="128" FontSize="9" BorderThickness="0.5,0.5,0.5,0.5" Click="nehez"/>
+            </Grid>
+        </Viewbox>
+
+    </Grid>
+</Window>
