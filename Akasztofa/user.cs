@@ -41,6 +41,17 @@ namespace Akasztofa
             this.neheznyert = neheznyert;
         }
 
+        public user(string fid, int konnyuossz, int konnyunyert, int kozepossz, int kozepnyert, int nehezossz, int neheznyert)
+        {
+            this.fid = fid;
+            this.konnyuossz = konnyuossz;
+            this.konnyunyert = konnyunyert;
+            this.kozepossz = kozepossz;
+            this.kozepnyert = kozepnyert;
+            this.nehezossz = nehezossz;
+            this.neheznyert = neheznyert;
+        }
+
         public user(string fid)
         {
             this.fid = fid;

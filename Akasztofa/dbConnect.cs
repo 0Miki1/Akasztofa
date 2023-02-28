@@ -86,5 +86,102 @@ namespace Akasztofa
             }
             return roman;
         }
+
+        public bool UpdateFasz(string fid, int nehezseg, int nyert)
+        {
+            if (Connect())
+            {
+                if (nyert == 1)
+                {
+                    if (nehezseg == 1)
+                    {
+                        string query = "Update jatekok set konnyuossz = konnyuossz + 1, konnyunyert = konnyunyert + 1 where @fid like fid";
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@fid", fid);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                    {
+                        if (nehezseg == 2)
+                        {
+                            string query = "Update jatekok set kozepesossz = kozepesossz + 1, kozepesnyert = kozepesnyert + 1 where @fid like fid";
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+                            cmd.Parameters.AddWithValue("@fid", fid);
+                            cmd.ExecuteNonQuery();
+                            return true;
+                        }
+                        else
+                        {
+                            if (nehezseg == 3)
+                            {
+                                string query = "Update jatekok set nehezossz = nehezossz + 1, neheznyert = neheznyert + 1 where @fid like fid";
+                                MySqlCommand cmd = new MySqlCommand(query, con);
+                                cmd.Parameters.AddWithValue("@fid", fid);
+                                cmd.ExecuteNonQuery();
+                                return true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (nehezseg == 1)
+                    {
+                        string query = "Update jatekok set konnyuossz = konnyuossz + 1 where @fid like fid";
+                        MySqlCommand cmd = new MySqlCommand(query, con);
+                        cmd.Parameters.AddWithValue("@fid", fid);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                    {
+                        if (nehezseg == 2)
+                        {
+                            string query = "Update jatekok set kozepesossz = kozepesossz + 1 where @fid like fid";
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+                            cmd.Parameters.AddWithValue("@fid", fid);
+                            cmd.ExecuteNonQuery();
+                            return true;
+                        }
+                        else
+                        {
+                            if (nehezseg == 3)
+                            {
+                                string query = "Update jatekok set nehezossz = nehezossz + 1 where @fid like fid";
+                                MySqlCommand cmd = new MySqlCommand(query, con);
+                                cmd.Parameters.AddWithValue("@fid", fid);
+                                cmd.ExecuteNonQuery();
+                                return true;
+                            }
+                        }
+                    }
+                }
+                Connect_Close();
+            }
+            return false;
+        }
+
+        public szo SelectRandSzo(szo sz)
+        {
+            szo ujszo = new szo(sz.Nehezseg);
+
+            if (Connect())
+            {
+                string query = "SELECT szo FROM szavak WHERE nehezseg LIKE @nehezseg ORDER BY RAND() LIMIT 1;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@nehezseg", sz.Nehezseg);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ujszo.Word = reader.GetString(0);
+                }
+
+                Connect_Close();
+            }
+
+            return ujszo;
+        }
     }
 }
