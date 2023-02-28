@@ -65,13 +65,13 @@ namespace Akasztofa
             nehezossz = 0;
         }
 
-        public string Fid { get => fid; }
-        public string Pw { get => pw; }
         public int Konnyuossz { get => konnyuossz; set => konnyuossz = value; }
         public int Konnyunyert { get => konnyunyert; set => konnyunyert = value; }
         public int Kozepossz { get => kozepossz; set => kozepossz = value; }
         public int Kozepnyert { get => kozepnyert; set => kozepnyert = value; }
         public int Nehezossz { get => nehezossz; set => nehezossz = value; }
         public int Neheznyert { get => neheznyert; set => neheznyert = value; }
+        public string Fid { get => fid; set => fid = value; }
+        public string Pw { get => pw; set => pw = value; }
     }
 }
