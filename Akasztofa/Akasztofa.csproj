@@ -58,12 +58,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="admin.xaml.cs">
-      <DependentUpon>admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="regisztracio.xaml.cs">
-      <DependentUpon>regisztracio.xaml</DependentUpon>
-    </Compile>
     <Compile Include="jatekter.xaml.cs">
       <DependentUpon>jatekter.xaml</DependentUpon>
     </Compile>
@@ -75,10 +69,6 @@
     </Compile>
     <Compile Include="szo.cs" />
     <Compile Include="user.cs" />
-    <Page Include="admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="bejelentkezes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,15 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -144,7 +129,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="akasztofa.sql" />
     <Resource Include="akasztofa0.png" />
     <Resource Include="akasztofa1.png" />
     <Resource Include="akasztofa10.png" />
