@@ -58,11 +58,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<Compile Include="admin.xaml.cs">
+    <Compile Include="admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="regisztracio.xaml.cs">
       <DependentUpon>regisztracio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="jatekter.xaml.cs">
+      <DependentUpon>jatekter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="modvalaszto.xaml.cs">
+      <DependentUpon>modvalaszto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="statisztika.xaml.cs">
+      <DependentUpon>statisztika.xaml</DependentUpon>
     </Compile>
     <Compile Include="szo.cs" />
     <Compile Include="user.cs" />

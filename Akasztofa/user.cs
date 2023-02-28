@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Akasztofa
 {
-    internal class user
+    public class user
     {
         private string fid;
         private string pw;
@@ -17,9 +17,6 @@ namespace Akasztofa
         private int kozepnyert;
         private int nehezossz;
         private int neheznyert;
-
-        public string Fid { get => fid; set => fid = value; }
-        public string Pw { get => pw; set => pw = value; }
 
         public user(string fid, string pw)
         {
@@ -68,13 +65,25 @@ namespace Akasztofa
             nehezossz = 0;
         }
 
-        public string Fid { get => fid; }
-        public string Pw { get => pw; }
+        public user()
+        {
+            fid = string.Empty;
+            pw = string.Empty;
+            konnyuossz = 0;
+            konnyunyert = 0;
+            kozepossz = 0;
+            konnyunyert = 0;
+            neheznyert = 0;
+            nehezossz = 0;
+        }
+
         public int Konnyuossz { get => konnyuossz; set => konnyuossz = value; }
         public int Konnyunyert { get => konnyunyert; set => konnyunyert = value; }
         public int Kozepossz { get => kozepossz; set => kozepossz = value; }
         public int Kozepnyert { get => kozepnyert; set => kozepnyert = value; }
         public int Nehezossz { get => nehezossz; set => nehezossz = value; }
         public int Neheznyert { get => neheznyert; set => neheznyert = value; }
+        public string Fid { get => fid; set => fid = value; }
+        public string Pw { get => pw; set => pw = value; }
     }
 }

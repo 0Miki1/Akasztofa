@@ -46,9 +46,9 @@ namespace Akasztofa
             //modvalaszto j = new modvalaszto(new user("asd"));
             //this.Hide();
             //j.Show();
-            //statisztika s = new statisztika(new user("a"));
-            //this.Hide();
-            //s.Show();
+            statisztika s = new statisztika(new user("a"));
+            this.Hide();
+            s.Show();
         }
     }
 }

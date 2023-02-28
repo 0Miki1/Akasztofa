@@ -122,7 +122,8 @@ namespace Akasztofa
                                     modvalaszto m = new modvalaszto(u);
                                     this.Close();
                                     m.Show();
-                                } else
+                                }
+                                else
                                 {
                                     statisztika s = new statisztika(new user("asd"));
                                     this.Close();
