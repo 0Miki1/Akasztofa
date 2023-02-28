@@ -19,12 +19,10 @@ namespace Akasztofa
     /// </summary>
     public partial class statisztika : Window
     {
-        private MainWindow mw;
         protected user u;
-        public statisztika(MainWindow mw, user u)
+        public statisztika(user u)
         {
             InitializeComponent();
-            this.mw = mw;
             this.u = u;
         }
 
@@ -55,9 +53,9 @@ namespace Akasztofa
 
         private void Game(object sender, MouseButtonEventArgs e)
         {
-            jatekter a = new jatekter(this);
-            this.Hide();
-            a.Show();
+            modvalaszto m = new modvalaszto(u);
+            this.Close();
+            m.Show();
         }
     }
 }

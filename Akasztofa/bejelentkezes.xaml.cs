@@ -44,7 +44,7 @@ namespace Akasztofa
                     MessageBox.Show("Sikeres bejelentkezés", "", MessageBoxButton.OK);
                     LogTBF.Text = string.Empty;
                     LogPBJ.Password = string.Empty;
-                    statisztika s = new statisztika(mw, new user("a"));
+                    statisztika s = new statisztika(new user("a"));
                 }
                 else
                 {

@@ -124,7 +124,7 @@ namespace Akasztofa
                                     m.Show();
                                 } else
                                 {
-                                    statisztika s = new statisztika();
+                                    statisztika s = new statisztika(new user("asd"));
                                     this.Close();
                                     s.Show();
                                 }
@@ -162,7 +162,7 @@ namespace Akasztofa
                                 }
                                 else
                                 {
-                                    statisztika s = new statisztika();
+                                    statisztika s = new statisztika(new user("asd"));
                                     this.Close();
                                     s.Show();
                                 }
@@ -187,7 +187,7 @@ namespace Akasztofa
         {
             if (MessageBox.Show("Biztosan kiszeretne lépni?", "Kilépés", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                statisztika a = new statisztika();
+                statisztika a = new statisztika(new user("asd"));
                 this.Close();
                 a.Show();
                 //adatok modositasa
