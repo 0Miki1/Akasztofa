@@ -34,7 +34,9 @@ namespace Akasztofa
         }
 
         public user(int konnyuossz, int konnyunyert, int kozepossz, int kozepnyert, int nehezossz, int neheznyert)
-        { 
+        {
+            fid = null;
+            pw = null;
             this.konnyuossz = konnyuossz;
             this.konnyunyert = konnyunyert;
             this.kozepossz = kozepossz;
@@ -43,10 +45,21 @@ namespace Akasztofa
             this.neheznyert = neheznyert;
         }
 
-        public user()
+        public user(string fid, int konnyuossz, int konnyunyert, int kozepossz, int kozepnyert, int nehezossz, int neheznyert)
         {
-            fid = string.Empty;
-            pw = string.Empty;
+            this.fid = fid;
+            this.konnyuossz = konnyuossz;
+            this.konnyunyert = konnyunyert;
+            this.kozepossz = kozepossz;
+            this.kozepnyert = kozepnyert;
+            this.nehezossz = nehezossz;
+            this.neheznyert = neheznyert;
+        }
+
+        public user(string fid)
+        {
+            this.fid = fid;
+            pw = null;
             konnyuossz = 0;
             konnyunyert = 0;
             kozepossz = 0;
@@ -54,5 +67,14 @@ namespace Akasztofa
             neheznyert = 0;
             nehezossz = 0;
         }
+
+        public string Fid { get => fid; }
+        public string Pw { get => pw; }
+        public int Konnyuossz { get => konnyuossz; set => konnyuossz = value; }
+        public int Konnyunyert { get => konnyunyert; set => konnyunyert = value; }
+        public int Kozepossz { get => kozepossz; set => kozepossz = value; }
+        public int Kozepnyert { get => kozepnyert; set => kozepnyert = value; }
+        public int Nehezossz { get => nehezossz; set => nehezossz = value; }
+        public int Neheznyert { get => neheznyert; set => neheznyert = value; }
     }
 }
