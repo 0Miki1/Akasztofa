@@ -59,7 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="admin.xaml.cs">
-      <DependentUpon>regisztracio.xaml</DependentUpon>
+      <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
     <Compile Include="regisztracio.xaml.cs">
       <DependentUpon>regisztracio.xaml</DependentUpon>
