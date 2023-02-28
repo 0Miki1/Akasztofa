@@ -28,14 +28,6 @@ namespace Akasztofa
             this.mw = mw;
         }
 
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            this.Hide();
-            mw.Show();
-        }
-
-        //mainwindow-ba static
         private string stringToSha256(string jelsz)
         {
             SHA256 sha = new SHA256Managed();
@@ -59,22 +51,21 @@ namespace Akasztofa
 
                 if (login.Fid != string.Empty && login.Pw != string.Empty)
                 {
-                    //jatek statisztika
                     if (login.Fid == "admin" && login.Pw == stringToSha256("admin"))
                     {
                         LogTBF.Text = string.Empty;
                         LogPBJ.Password = string.Empty;
                         MessageBox.Show("Sikeres admin bejelentkezés", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                        //admin a = new admin(this);
-                        //this.Hide();
-                        //a.Show();
+                        admin a = new admin(this, mw);
+                        this.Hide();
+                        a.Show();
                     }
                     else
                     {
                         LogTBF.Text = string.Empty;
                         LogPBJ.Password = string.Empty;
                         MessageBox.Show("Sikeres bejelentkezés", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                        statisztika s = new statisztika(login);
+                        statisztika s = new statisztika(login, this);
                         this.Hide();
                         s.Show();
 
@@ -102,6 +93,12 @@ namespace Akasztofa
                     MessageBox.Show("Adjon meg egy jelszót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void vissza(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            mw.Show();
         }
     }
 }

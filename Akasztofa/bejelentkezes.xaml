@@ -13,9 +13,11 @@
                 <Label Content="Bejelentkezés" Foreground="White" FontSize="7" FontFamily="Arial Black" Margin="30,0,29,39" HorizontalAlignment="Center"/>
                 <Label Content="Felhasználónév:" HorizontalAlignment="Left" Margin="9,17,0,0" VerticalAlignment="Top" Height="15" Width="45" Foreground="White" FontSize="4"/>
                 <Label Content="Jelszó:" HorizontalAlignment="Left" Margin="9,27,0,0" VerticalAlignment="Top" Height="15" Width="45" Foreground="White" FontSize="4"/>
-                <TextBox x:Name="LogTBF" HorizontalAlignment="Left" Height="6" Margin="46,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontSize="3" BorderThickness="0.75,0.75,0.75,0.75" />
-                <PasswordBox x:Name="LogPBJ" HorizontalAlignment="Left" Height="6" Margin="32,32,0,0" VerticalAlignment="Top" Width="77" FontSize="3" BorderThickness="0.75,0.75,0.75,0.75" />
-                <Button Content="Bejelentkezés" HorizontalAlignment="Left" Margin="32,45,0,0" VerticalAlignment="Top" Width="62" Height="11" FontSize="5" Click="login" BorderThickness="0.75,0.75,0.75,0.75" SnapsToDevicePixels="True"/>
+                <TextBox x:Name="LogTBF" HorizontalAlignment="Left" Height="6" Margin="46,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63" FontSize="3" BorderThickness="0.5,0.5,0.5,0.5" />
+                <PasswordBox x:Name="LogPBJ" HorizontalAlignment="Left" Height="6" Margin="32,32,0,0" VerticalAlignment="Top" Width="77" FontSize="3" BorderThickness="0.5,0.5,0.5,0.5" />
+                <Button Content="Bejelentkezés" HorizontalAlignment="Left" Margin="32,45,0,0" VerticalAlignment="Top" Width="62" Height="11" FontSize="5" Click="login" BorderThickness="0.5,0.5,0.5,0.5" SnapsToDevicePixels="True"/>
+                <Label Content="&#xE112; Vissza" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Segoe UI Symbol" Foreground="White" FontSize="4" Margin="-1,-5,0,0" Height="15" MouseLeftButtonUp="vissza"/>
+
             </Grid>
         </Viewbox>
 

@@ -40,15 +40,9 @@ namespace Akasztofa
 
         private void bejelentkezes(object sender, RoutedEventArgs e)
         {
-            //bejelentkezes b = new bejelentkezes(this);
-            //this.Hide();
-            //b.Show();
-            //modvalaszto j = new modvalaszto(new user("asd"));
-            //this.Hide();
-            //j.Show();
-            statisztika s = new statisztika(new user("a"));
+            bejelentkezes b = new bejelentkezes(this);
             this.Hide();
-            s.Show();
+            b.Show();
         }
     }
 }

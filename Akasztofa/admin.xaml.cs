@@ -22,18 +22,14 @@ namespace Akasztofa
     public partial class admin : Window
     {
         private MainWindow mw;
+        private bejelentkezes b;
         private bool joadat;
 
-        public admin(MainWindow mw)
+        public admin(bejelentkezes b, MainWindow mw)
         {
             InitializeComponent();
+            this.b = b;
             this.mw = mw;
-        }
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            this.Close();
-            mw.Show();
         }
 
         private void adatbetoltes()
@@ -140,7 +136,7 @@ namespace Akasztofa
                 if (ta1.Text != string.Empty && ca1.SelectedIndex != -1)
                 {
                     dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                    szo sz = new szo(ta1.Text, ca1.SelectedIndex + 1);
+                    szo sz = new szo(ta1.Text.ToLower(), ca1.SelectedIndex + 1);
 
                     if (db.WordExists(sz))
                     {
@@ -290,7 +286,7 @@ namespace Akasztofa
 
                 if (seged >= 1 && seged <= 7)
                 {
-                    szo sz = new szo(sor, 1);
+                    szo sz = new szo(sor.ToLower(), 1);
                     if (db.WordExists(sz))
                     {
                         if (db.InsertSzo(sz))
@@ -309,7 +305,7 @@ namespace Akasztofa
                 }
                 else if (seged >= 8 && seged <= 12)
                 {
-                    szo sz = new szo(sor, 2);
+                    szo sz = new szo(sor.ToLower(), 2);
                     if (db.WordExists(sz))
                     {
                         if (db.InsertSzo(sz))
@@ -328,7 +324,7 @@ namespace Akasztofa
                 }
                 else if (seged >= 13 && seged <= 99)
                 {
-                    szo sz = new szo(sor, 3);
+                    szo sz = new szo(sor.ToLower(), 3);
                     if (db.WordExists(sz))
                     {
                         if (db.InsertSzo(sz))
@@ -375,9 +371,8 @@ namespace Akasztofa
 
         private void vissza(object sender, MouseButtonEventArgs e)
         {
-            //bejelentkezes b = new bejelentkezes(mw);
-            //this.Close();
-            //b.Show();
+            this.Close();
+            b.Show();
         }
 
         private void fooldal(object sender, MouseButtonEventArgs e)

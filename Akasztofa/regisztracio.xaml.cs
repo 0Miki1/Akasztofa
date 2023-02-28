@@ -35,7 +35,6 @@ namespace Akasztofa
             mw.Show();
         }
 
-        //mainwindow-ba static
         private string stringToSha256(string jelsz)
         {
             SHA256 sha = new SHA256Managed();
@@ -60,7 +59,7 @@ namespace Akasztofa
                     if (db.FhExists(new user(RegTBFh.Text)))
                     {
                         db.InsertInto(new user(RegTBFh.Text, stringToSha256(RegPbJelsz.Password)));
-                        MessageBox.Show("Sikeres regisztráció", "", MessageBoxButton.OK);
+                        MessageBox.Show("Sikeres regisztráció", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                         RegTBFh.Text = string.Empty;
                         RegPbJelsz.Password = string.Empty;
                         RegPbJelszU.Password = string.Empty;
@@ -110,6 +109,12 @@ namespace Akasztofa
                     MessageBox.Show("Adjon meg egy felhasználónevet és egy jelszót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void vissza(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            mw.Show();
         }
     }
 }

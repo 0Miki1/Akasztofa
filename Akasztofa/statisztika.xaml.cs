@@ -20,6 +20,14 @@ namespace Akasztofa
     public partial class statisztika : Window
     {
         protected user u;
+        private bejelentkezes b;
+        public statisztika(user u, bejelentkezes b)
+        {
+            InitializeComponent();
+            this.u = u;
+            this.b = b;
+        }
+
         public statisztika(user u)
         {
             InitializeComponent();
@@ -30,7 +38,7 @@ namespace Akasztofa
         {
             dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
             user s = db.SelectStat(u.Fid);
-            labelName.Content = s.Fid;
+            labelName.Content = s.Fid + " statisztikái";
             l1.Content += Convert.ToString(s.Konnyuossz);
             l2.Content += Convert.ToString($" {s.Konnyunyert} | {szamol(s.Konnyuossz, s.Konnyunyert)}%");
             l3.Content += Convert.ToString(s.Kozepossz);
@@ -40,9 +48,16 @@ namespace Akasztofa
             lOsszes.Content += osszes(s.Konnyuossz, s.Kozepossz, s.Nehezossz);
         }
 
-        private int szamol(int ossz, int nyert)
+        private double szamol(double ossz, double nyert)
         {
-            return (nyert / ossz) * 100;
+            if (ossz > 0)
+            {
+                return Math.Round((nyert / ossz) * 100);
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         private string osszes(int a, int b, int c)
@@ -53,9 +68,22 @@ namespace Akasztofa
 
         private void Game(object sender, MouseButtonEventArgs e)
         {
-            modvalaszto m = new modvalaszto(u);
-            this.Close();
+            modvalaszto m = new modvalaszto(u, this);
+            this.Hide();
             m.Show();
+        }
+
+        private void vissza(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+            b.Show();
+        }
+
+        private void fooldal(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            this.Close();
+            mw.Show();
         }
     }
 }

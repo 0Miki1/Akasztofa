@@ -20,6 +20,7 @@ namespace Akasztofa
     /// </summary>
     public partial class jatekter : Window
     {
+        private modvalaszto m;
         private user u;
         private szo sz;
         private int progress;
@@ -28,17 +29,27 @@ namespace Akasztofa
         private List<char> rossztippek;
         private List<char> kitalaltbetuk;
 
-        public jatekter(szo sz, user u)
+        public jatekter(szo sz, user u, modvalaszto m)
         {
             InitializeComponent();
             this.u = u;
             this.sz = sz;
+            this.m = m;
             progress = 0;
             kepsorsz = 13;
             hiba = 0;
             rossztippek = new List<char>();
             kitalaltbetuk = new List<char>();
             szokeres();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            statmod(false);
+            MessageBox.Show("Félbehagyott játék miatt romlott a statisztika!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            statisztika s = new statisztika(u);
+            s.Show();
         }
 
         private void szokeres()
@@ -69,103 +80,77 @@ namespace Akasztofa
 
         private void tipp(object sender, KeyEventArgs e)
         {
-            char seged = Tipp.Text[0];
+            string tipp = Tipp.Text.ToLower();
+            char seged = ' ';
 
-            if (Tipp.Text.All(char.IsLetter))
+            try
             {
-                if (sz.Word.Contains(seged))
+                seged = tipp[0];
+            }
+            catch (Exception)
+            {
+                seged = ' ';
+            }
+
+            if (seged != ' ')
+            {
+                if (Tipp.Text.All(char.IsLetter))
                 {
-                    if (!kitalaltbetuk.Contains(seged))
+                    if (sz.Word.Contains(seged))
                     {
-                        List<string> l1 = new List<string>();
-                        int cnt = sz.Word.Count(x => x == seged);
-
-                        //kitalálandó szó felbontása jelen állapot szerint
-                        for (int i = 0; i < L1.Text.Length; i++)
+                        if (!kitalaltbetuk.Contains(seged))
                         {
-                            l1.Add(Convert.ToString(L1.Text[i]));
-                        }
+                            List<string> l1 = new List<string>();
+                            int cnt = sz.Word.Count(x => x == seged);
 
-                        L1.Text = string.Empty;
-
-                        //kitalált karakterek felülírása
-                        for (int i = 0; i < l1.Count; i++)
-                        {
-                            if (sz.Word[i] == seged)
+                            //kitalálandó szó felbontása jelen állapot szerint
+                            for (int i = 0; i < L1.Text.Length; i++)
                             {
-                                l1[i] = Convert.ToString(seged);
+                                l1.Add(Convert.ToString(L1.Text[i]));
                             }
-                        }
 
-                        //kitalálandó szó újrarajzolása, kitalált betűk felfedése
-                        for (int i = 0; i < l1.Count; i++)
-                        {
-                            L1.Text += l1[i];
-                        }
+                            L1.Text = string.Empty;
 
-                        //előreheladás
-                        for (int i = 0; i < cnt; i++)
-                        {
-                            progress++;
-                        }
-                        //kitalált betűk bővítése, hogy ne lehessen egy már kitalált betű újra beírásával növelni a progress-t
-                        kitalaltbetuk.Add(seged);
-
-                        if (progress == l1.Count)
-                        {
-                            MessageBox.Show("Gratulálunk nyertél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //statisztika növelés
-                            if (statmod(true))
+                            //kitalált karakterek felülírása
+                            for (int i = 0; i < l1.Count; i++)
                             {
-                                if (MessageBox.Show("Szeretne tovább játszani?", "Játék", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                                if (sz.Word[i] == seged)
                                 {
-                                    modvalaszto m = new modvalaszto(u);
-                                    this.Close();
-                                    m.Show();
-                                }
-                                else
-                                {
-                                    statisztika s = new statisztika(new user("asd"));
-                                    this.Close();
-                                    s.Show();
+                                    l1[i] = Convert.ToString(seged);
                                 }
                             }
-                        }
-                    }
 
-                    Tipp.Text = string.Empty;
-                }
-                else
-                {
-                    if (!rossztippek.Contains(seged))
-                    {
-                        RTipp.Text += $" {seged},";
-                        rossztippek.Add(seged);
-                        hibaLb.Content = $"{++hiba}/15";
-
-                        if (kepsorsz > -1)
-                        {
-                            kep.Source = new BitmapImage(new Uri($"/akasztofa{kepsorsz--}.png", UriKind.Relative));
-                        }
-                        else
-                        {
-                            kep.Source = new BitmapImage(new Uri($"/akasztofa{kepsorsz--}.png", UriKind.Relative));
-                            L1.Text = sz.Word;
-                            MessageBox.Show("Vesztettél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                            //statisztika levonás
-                            if (statmod(false))
+                            //kitalálandó szó újrarajzolása, kitalált betűk felfedése
+                            for (int i = 0; i < l1.Count; i++)
                             {
-                                if (MessageBox.Show("Szeretne még egyet játszani?", "Játék", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                                L1.Text += l1[i];
+                            }
+
+                            //előreheladás
+                            for (int i = 0; i < cnt; i++)
+                            {
+                                progress++;
+                            }
+                            //kitalált betűk bővítése, hogy ne lehessen egy már kitalált betű újra beírásával növelni a progress-t
+                            kitalaltbetuk.Add(seged);
+
+                            if (progress == l1.Count)
+                            {
+                                MessageBox.Show("Gratulálunk nyertél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                                //statisztika növelés
+                                if (statmod(true))
                                 {
-                                    modvalaszto m = new modvalaszto(u);
-                                    this.Close();
-                                    m.Show();
-                                }
-                                else
-                                {
-                                    statisztika s = new statisztika(new user("asd"));
-                                    this.Close();
-                                    s.Show();
+                                    if (MessageBox.Show("Szeretne tovább játszani?", "Játék", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                                    {
+                                        this.Close();
+                                        m.Show();
+                                    }
+                                    else
+                                    {
+                                        statisztika s = new statisztika(new user("asd"));
+                                        this.Close();
+                                        s.Show();
+                                    }
                                 }
                             }
                         }
@@ -174,8 +159,50 @@ namespace Akasztofa
                     }
                     else
                     {
-                        Tipp.Text = string.Empty;
+                        if (!rossztippek.Contains(seged))
+                        {
+                            RTipp.Text += $" {seged},";
+                            rossztippek.Add(seged);
+                            hibaLb.Content = $"{++hiba}/15";
+
+                            if (kepsorsz > -1)
+                            {
+                                kep.Source = new BitmapImage(new Uri($"/akasztofa{kepsorsz--}.png", UriKind.Relative));
+                            }
+                            else
+                            {
+                                kep.Source = new BitmapImage(new Uri($"/akasztofa{kepsorsz--}.png", UriKind.Relative));
+                                L1.Text = sz.Word;
+                                MessageBox.Show("Vesztettél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                                //statisztika levonás
+                                if (statmod(false))
+                                {
+                                    if (MessageBox.Show("Szeretne még egyet játszani?", "Játék", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                                    {
+                                        modvalaszto m = new modvalaszto(u);
+                                        this.Close();
+                                        m.Show();
+                                    }
+                                    else
+                                    {
+                                        statisztika s = new statisztika(new user("asd"));
+                                        this.Close();
+                                        s.Show();
+                                    }
+                                }
+                            }
+
+                            Tipp.Text = string.Empty;
+                        }
+                        else
+                        {
+                            Tipp.Text = string.Empty;
+                        }
                     }
+                }
+                else
+                {
+                    Tipp.Text = string.Empty;
                 }
             }
             else
@@ -188,12 +215,12 @@ namespace Akasztofa
         {
             if (MessageBox.Show("Biztosan kiszeretne lépni?", "Kilépés", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                statisztika a = new statisztika(new user("asd"));
+                //adatok modositasa
+                //dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
+                //db.UpdateFasz(u.Fid, sz.Nehezseg, 0);
+                statisztika a = new statisztika(u);
                 this.Close();
                 a.Show();
-                //adatok modositasa
-                dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
-                db.UpdateFasz(u.Fid, sz.Nehezseg, 0);
             }
         }
     }

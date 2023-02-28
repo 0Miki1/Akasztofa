@@ -42,7 +42,7 @@ namespace Akasztofa
             }
         }
 
-public bool FhExists(user u)
+        public bool FhExists(user u)
         {
             if (Connect())
             {
@@ -63,14 +63,15 @@ public bool FhExists(user u)
             Connect_Close();
             return false;
         }
-public bool InsertInto(user u)
+        public bool InsertInto(user u)
         {
             if (Connect())
             {
-                string query = "Insert Into felhasznalok(ui, pw) Values(@ui, @pw)";
+                string query = "Insert Into felhasznalok(ui, pw) Values(@ui, @pw); INSERT INTO jatekok(fid, konnyuossz, konnyunyert, kozepesossz, kozepesnyert, nehezossz, neheznyert) VALUES(@fid, 0, 0, 0, 0, 0, 0)";
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ui", u.Fid);
                 cmd.Parameters.AddWithValue("@pw", u.Pw);
+                cmd.Parameters.AddWithValue("@fid", u.Fid);
                 cmd.ExecuteNonQuery();
 
                 Connect_Close();
@@ -191,7 +192,7 @@ public bool InsertInto(user u)
 
             return szavak;
         }
-public user Login(user u)
+        public user Login(user u)
         {
             user fh = new user();
             if (Connect())
@@ -225,8 +226,8 @@ public user Login(user u)
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    roman.Konnyuossz = Convert.ToInt32(reader.GetString(0));
-                    roman.Konnyunyert = Convert.ToInt32(reader.GetString(1));
+                    roman.Konnyuossz = reader.GetInt32(0);
+                    roman.Konnyunyert = reader.GetInt32(1);
                     roman.Kozepossz = reader.GetInt32(2);
                     roman.Kozepnyert = reader.GetInt32(3);
                     roman.Nehezossz = reader.GetInt32(4);
@@ -310,7 +311,7 @@ public user Login(user u)
             }
             return false;
         }
-public szo SelectRandSzo(szo sz)
+        public szo SelectRandSzo(szo sz)
         {
             szo ujszo = new szo(sz.Nehezseg);
 

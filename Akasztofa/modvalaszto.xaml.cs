@@ -20,6 +20,14 @@ namespace Akasztofa
     public partial class modvalaszto : Window
     {
         private user u;
+        private statisztika s;
+
+        public modvalaszto(user u, statisztika s)
+        {
+            InitializeComponent();
+            this.u = u;
+            this.s = s;
+        }
 
         public modvalaszto(user u)
         {
@@ -29,21 +37,21 @@ namespace Akasztofa
 
         private void konnyu(object sender, RoutedEventArgs e)
         {
-            jatekter j = new jatekter(new szo(1), u);
+            jatekter j = new jatekter(new szo(1), u, this);
             this.Close();
             j.Show();
         }
 
         private void kozepes(object sender, RoutedEventArgs e)
         {
-            jatekter j = new jatekter(new szo(2), u);
+            jatekter j = new jatekter(new szo(2), u, this);
             this.Close();
             j.Show();
         }
 
         private void nehez(object sender, RoutedEventArgs e)
         {
-            jatekter j = new jatekter(new szo(3), u);
+            jatekter j = new jatekter(new szo(3), u, this);
             this.Close();
             j.Show();
         }
