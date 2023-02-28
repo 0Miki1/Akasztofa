@@ -18,9 +18,6 @@ namespace Akasztofa
         private int nehezossz;
         private int neheznyert;
 
-        public string Fid { get => fid; set => fid = value; }
-        public string Pw { get => pw; set => pw = value; }
-
         public user(string fid, string pw)
         {
             this.fid = fid;
