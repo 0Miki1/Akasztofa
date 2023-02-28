@@ -28,6 +28,7 @@ namespace Akasztofa
         private int hiba;
         private List<char> rossztippek;
         private List<char> kitalaltbetuk;
+        private bool jatekvege;
 
         public jatekter(szo sz, user u, modvalaszto m)
         {
@@ -38,6 +39,7 @@ namespace Akasztofa
             progress = 0;
             kepsorsz = 13;
             hiba = 0;
+            jatekvege = false;
             rossztippek = new List<char>();
             kitalaltbetuk = new List<char>();
             szokeres();
@@ -46,10 +48,12 @@ namespace Akasztofa
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            statmod(false);
-            MessageBox.Show("Félbehagyott játék miatt romlott a statisztika!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            statisztika s = new statisztika(u);
-            s.Show();
+
+            if (!jatekvege)
+            {
+                statmod(false);
+                MessageBox.Show("Félbehagyott játék miatt romlott a statisztika!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void szokeres()
@@ -136,18 +140,20 @@ namespace Akasztofa
 
                             if (progress == l1.Count)
                             {
+                                jatekvege = true;
                                 MessageBox.Show("Gratulálunk nyertél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                                 //statisztika növelés
                                 if (statmod(true))
                                 {
                                     if (MessageBox.Show("Szeretne tovább játszani?", "Játék", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                                     {
+                                        modvalaszto m = new modvalaszto(u);
                                         this.Close();
                                         m.Show();
                                     }
                                     else
                                     {
-                                        statisztika s = new statisztika(new user("asd"));
+                                        statisztika s = new statisztika(u);
                                         this.Close();
                                         s.Show();
                                     }
@@ -173,6 +179,7 @@ namespace Akasztofa
                             {
                                 kep.Source = new BitmapImage(new Uri($"/akasztofa{kepsorsz--}.png", UriKind.Relative));
                                 L1.Text = sz.Word;
+                                jatekvege = true;
                                 MessageBox.Show("Vesztettél!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                                 //statisztika levonás
                                 if (statmod(false))
@@ -185,7 +192,7 @@ namespace Akasztofa
                                     }
                                     else
                                     {
-                                        statisztika s = new statisztika(new user("asd"));
+                                        statisztika s = new statisztika(u);
                                         this.Close();
                                         s.Show();
                                     }
@@ -215,6 +222,7 @@ namespace Akasztofa
         {
             if (MessageBox.Show("Biztosan kiszeretne lépni?", "Kilépés", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                jatekvege = false;
                 //adatok modositasa
                 //dbConnect db = new dbConnect("localhost", "akasztofa", "root", "");
                 //db.UpdateFasz(u.Fid, sz.Nehezseg, 0);

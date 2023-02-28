@@ -134,6 +134,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,7 +159,7 @@
     <Resource Include="akasztofa8.png" />
     <Resource Include="akasztofa9.png" />
     <Resource Include="akasztofa-1.png" />
-    <Resource Include="hangman.jpg" />
+    <Resource Include="hangmanicon.png" />
     <Content Include="mysql.data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

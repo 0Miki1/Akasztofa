@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Módválasztó" Height="433" Width="800" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen">
+        Title="Módválasztó" Icon="hangmanicon.png" Height="433" Width="800" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen">
     <Grid>
         <Viewbox>
             <Grid Height="94" Width="183">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Admin" Height="717" Width="757.307" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen" Loaded="betoltes">
+        Title="Admin" Icon="hangmanicon.png" Height="717" Width="757.307" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowStartupLocation="CenterScreen" Loaded="betoltes">
     <Grid>
         <Viewbox>
             <Grid Height="191" Width="209">

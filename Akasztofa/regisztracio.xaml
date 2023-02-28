@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Regisztráció" Height="505.285" Width="703.571" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+        Title="Regisztráció" Icon="hangmanicon.png" Height="505.285" Width="703.571" MinHeight="400" MinWidth="650" Background="#FF2C2C2C" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Grid>
         <Viewbox>
             <Grid Height="121" Width="182">

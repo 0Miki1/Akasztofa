@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Akasztofa"
         mc:Ignorable="d"
-        Title="Statisztika" Height="441" Width="646" Background="#FF2C2C2C" Loaded="load" WindowStartupLocation="CenterScreen">
+        Title="Statisztika" Icon="hangmanicon.png" Height="441" Width="646" Background="#FF2C2C2C" Loaded="load" WindowStartupLocation="CenterScreen">
     <Grid>
         <Viewbox>
             <Grid Height="90" Width="136">
