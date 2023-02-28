@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Akasztofa
 {
-    internal class szo
+    public class szo
     {
         private string word;
         private int nehezseg;
@@ -24,9 +24,15 @@ namespace Akasztofa
             nehezseg = -1;
         }
 
+        public szo(int nehezseg)
+        {
+            word = string.Empty;
+            this.nehezseg = nehezseg;
+        }
+
         public static List<string> Nehezsegek { get => nehezsegek; }
-        public string Word { get => word; }
         public int Nehezseg { get => nehezseg; }
+        public string Word { get => word; set => word = value; }
 
         public override string ToString()
         {

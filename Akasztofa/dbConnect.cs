@@ -151,5 +151,27 @@ namespace Akasztofa
             }
             return false;
         }
+
+        public szo SelectRandSzo(szo sz)
+        {
+            szo ujszo = new szo(sz.Nehezseg);
+
+            if (Connect())
+            {
+                string query = "SELECT szo FROM szavak WHERE nehezseg LIKE @nehezseg ORDER BY RAND() LIMIT 1;";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@nehezseg", sz.Nehezseg);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    ujszo.Word = reader.GetString(0);
+                }
+
+                Connect_Close();
+            }
+
+            return ujszo;
+        }
     }
 }
