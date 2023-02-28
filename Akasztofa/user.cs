@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Akasztofa
 {
-    internal class user
+    public class user
     {
         private string fid;
         private string pw;
@@ -57,6 +57,18 @@ namespace Akasztofa
         {
             this.fid = fid;
             pw = null;
+            konnyuossz = 0;
+            konnyunyert = 0;
+            kozepossz = 0;
+            konnyunyert = 0;
+            neheznyert = 0;
+            nehezossz = 0;
+        }
+
+        public user()
+        {
+            fid = string.Empty;
+            pw = string.Empty;
             konnyuossz = 0;
             konnyunyert = 0;
             kozepossz = 0;

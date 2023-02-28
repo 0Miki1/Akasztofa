@@ -31,8 +31,8 @@ namespace Akasztofa
         }
 
         public static List<string> Nehezsegek { get => nehezsegek; }
-        public int Nehezseg { get => nehezseg; }
         public string Word { get => word; set => word = value; }
+        public int Nehezseg { get => nehezseg; }
 
         public override string ToString()
         {
