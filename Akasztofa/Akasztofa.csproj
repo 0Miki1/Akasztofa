@@ -160,6 +160,8 @@
     <Resource Include="akasztofa9.png" />
     <Resource Include="akasztofa-1.png" />
     <Resource Include="hangmanicon.png" />
+    <Resource Include="magyar_szavak.txt" />
+    <Content Include="akasztofa.sql" />
     <Content Include="mysql.data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
