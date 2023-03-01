@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Akasztofa.MainWindow">
-    <Position X="14.75" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAACAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
@@ -30,7 +30,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.modvalaszto">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+    <Position X="1" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAoIAAAAAAAA=</HashCode>
       <FileName>modvalaszto.xaml.cs</FileName>
@@ -38,7 +38,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.regisztracio">
-    <Position X="11.25" Y="3.25" Width="1.5" />
+    <Position X="4.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAIEAAgAAAAEAAACAAAAAAAAAAA=</HashCode>
       <FileName>regisztracio.xaml.cs</FileName>
@@ -46,7 +46,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.statisztika">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAIAAAAAAAAAEAAAAAAgAAgIAAQIAAAAAAAA=</HashCode>
       <FileName>statisztika.xaml.cs</FileName>
@@ -54,7 +54,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.bejelentkezes">
-    <Position X="14.75" Y="2.5" Width="1.5" />
+    <Position X="2.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAEAAACAAAAAAAAEAA=</HashCode>
       <FileName>bejelentkezes.xaml.cs</FileName>
@@ -62,7 +62,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.admin">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAACBEAAAAIIEFAgAAAQAAASAAQEA=</HashCode>
       <FileName>admin.xaml.cs</FileName>
@@ -70,7 +70,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Akasztofa.jatekter">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="8" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAICAAAAgDgAAAAAAAAoICgCAAACA=</HashCode>
       <FileName>jatekter.xaml.cs</FileName>
